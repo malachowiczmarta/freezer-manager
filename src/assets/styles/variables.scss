@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+// basic colors:
+$white-color: #fff;
+$black-color: #000;
+$primary-color: rgb(3, 144, 187);
+$light-gray: #f7f8fa;
+$gray: #c0c7d6;
+$dark-gray: #737c8e;
+$success: #8fcb81;
+$error: #cb8581;
+$warning: #e1d888;
+
+
+// breakpoints:
+$breakpoint-xsmall: 480px;
+$breakpoint-small: 768px;
+$breakpoint-medium: 992px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1280px;
+$breakpoint-xxlarge: 1400px;
+$breakpoint-full: 1600px;
+
+// font-sizes:
+$xxs-font-size: 1rem;
+$xs-font-size: 1.1rem;
+$small-font-size: 1.2rem;
+$small-base-font-size: 1.3rem;
+$base-font-size: 1.4rem;
+$base-m-font-size: 1.6rem;
+$base-ml-font-size: 1.7rem;
+$m-font-size: 1.8rem;
+
+$form-font: "Montserrat", sans-serif;
