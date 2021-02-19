@@ -1,15 +1,39 @@
 @import "../../assets/styles/variables.scss";
 
 .dropdownWrapper {
-    position: relative;
-    font-size: $base-m-font-size;
+  position: relative;
+  font-size: $base-m-font-size;
 }
 
 .dropdownHeader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: $white-color;
+}
+
+.navLinksMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  top: 50px;
+  z-index: 99;
+  width: 70vw;
+  height: calc(100vh - 80px);
+  background-color: $white-color;
+  font-size: $base-xxl-font-size;
+  color: $dark-gray;
+  li {
+    padding: 15px 0;
+    text-align: center;
+  }
+  button {
     background-color: $white-color;
+    padding: 15px 0;
+  }
 }
