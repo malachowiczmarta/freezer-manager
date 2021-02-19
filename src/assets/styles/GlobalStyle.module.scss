@@ -1,0 +1,31 @@
+$font-stack: "Montserrat", sans-serif;
+$font-size-l: 48px;
+$font-size-m: 24px;
+$font-size-s: 12px;
+$primary-color: rgb(3, 144, 187);
+$light-gray: #f7f8fa;
+$gray: #c0c7d6;
+$dark-gray: #737c8e;
+$black: #111111;
+$success: #8fcb81;
+$error: #cb8581;
+$warning: #e1d888;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-stack;
+}
+
+a,
+button {
+  font-family: $font-stack;
+}
