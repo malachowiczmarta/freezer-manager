@@ -16,15 +16,19 @@ function Nav() {
     <div className={styles.navWrapper}>
       <div className={styles.navContainer}>
         <span>freezer<br/>manager</span>
-        <Dropdown toggleDropdown={toggleDd} open={isOpen} label="menu">
-            <NavLinks />
-        </Dropdown>
-        {/* <ul>
-          <li>Home</li>
-          <li>My freezer</li>
-          <li>Freezer guide</li>
-        </ul>
-        <button>login</button> */}
+        <div className={styles.navLinksMobileContainer}>
+            <Dropdown toggleDropdown={toggleDd} open={isOpen} label="menu">
+                <NavLinks />
+            </Dropdown>
+        </div>
+        <div className={styles.navLinks}>
+            <ul>
+                <li>Home</li>
+                <li>My freezer</li>
+                <li>Freezer guide</li>
+            </ul>
+            <button>login</button>
+        </div>
       </div>
     </div>
   );

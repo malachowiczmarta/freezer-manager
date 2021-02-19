@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from "react";
-import { ReactComponent as MenuIcon } from "../../assets/icon/hamburger.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icon/menu.svg";
 import styles from "./Dropdown.module.scss";
 
 type DropdownProps = {
@@ -15,9 +15,7 @@ const Dropdown = ({ children, label, open, toggleDropdown }: DropdownProps) => {
       <button onClick={toggleDropdown} className={styles.dropdownHeader}>
         <MenuIcon />
       </button>
-      <div className={styles.dropdownContent}>
       {open && children}
-      </div>
     </div>
   );
 };

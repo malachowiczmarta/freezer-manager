@@ -1,41 +1,81 @@
 @import "../../assets/styles/variables.scss";
 
 %box-center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
-
 .navWrapper {
-    width: 100vw;
-    height: 70px;
-    @extend %box-center;
-    justify-content: center;
+  width: 100vw;
+  height: 70px;
+  @extend %box-center;
+  justify-content: center;
 }
 
 .navContainer {
-    width: 70vw;
-    height: 100%;
-    @extend %box-center;
-    justify-content: space-between;
+  width: 70vw;
+  height: 100%;
+  @extend %box-center;
+  justify-content: space-between;
 }
 
-// ul {
-//     width: 35%;
-//     height: 100%;
-//     @extend %box-center;
-//     justify-content: space-between;
-//     font-size: $base-font-size;
-// }
+.navLinksMobile {
+  @extend %box-center;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  top: 50px;
+  z-index: 99;
+  width: 70vw;
+  height: calc(100vh - 80px);
+  background-color: $white-color;
+  font-size: $base-xxl-font-size;
+  color: $dark-gray;
+  li {
+      padding: 15px 0;
+      text-align: center;
+  }
+  button {
+      background-color: $white-color;
+      padding: 15px 0;
+  }
+
+}
+
+.navLinks {
+  display: none;
+}
 
 span {
-    font-size: $base-ml-font-size;
-    font-weight: 700;
-    line-height: 0.9;
-    color: $primary-color;
+  font-size: $base-ml-font-size;
+  font-weight: 700;
+  line-height: 0.9;
+  color: $primary-color;
 }
 
-@media (min-width: $breakpoint-xsmall) {
-    
+@media (min-width: $breakpoint-small) {
+  .navLinksMobileContainer {
+    display: none;
+  }
+
+  .navLinks {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $base-m-font-size;
+    ul {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    button {
+        background-color: $white-color;
+        font-weight: 700;
+    }
+  }
 }
