@@ -17,7 +17,7 @@ function Nav() {
       <div className={styles.navContainer}>
         <span>freezer<br/>manager</span>
         <div className={styles.navLinksMobileContainer}>
-            <Dropdown toggleDropdown={toggleDd} open={isOpen} label="menu">
+            <Dropdown toggleDropdown={toggleDd} open={isOpen} variant="menu">
                 <NavLinks />
             </Dropdown>
         </div>

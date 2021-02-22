@@ -6,14 +6,16 @@ type DropdownProps = {
   children: any;
   label?: string;
   open: boolean;
+  variant: string;
   toggleDropdown: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Dropdown = ({ children, label, open, toggleDropdown }: DropdownProps) => {
+const Dropdown = ({ children, label, variant, open, toggleDropdown }: DropdownProps) => {
+
   return (
     <div className={styles.dropdownWrapper}>
       <button onClick={toggleDropdown} className={styles.dropdownHeader}>
-        <MenuIcon />
+        {variant === "menu" && <MenuIcon />}
       </button>
       <div className={styles.navLinksMobile}>
         {open && children}
