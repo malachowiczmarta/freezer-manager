@@ -17,9 +17,7 @@ const Dropdown = ({ children, label, variant, open, toggleDropdown }: DropdownPr
       <button onClick={toggleDropdown} className={styles.dropdownHeader}>
         {variant === "menu" && <MenuIcon />}
       </button>
-      <div className={styles.navLinksMobile}>
         {open && children}
-      </div>
     </div>
   );
 };

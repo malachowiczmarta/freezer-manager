@@ -11,22 +11,26 @@
     height: 100vh;
     @extend %box-center;
     justify-content: center;
-}
 
-.main {
-    width: 70vw;
-    @extend %box-center;
-    justify-content: space-between;
-}
+    .main {
+        width: 70vw;
+        @extend %box-center;
+        justify-content: space-between;
 
-.header {
-    text-align: left;
-    h1 {
-        font-size: $base-xxl-font-size;
-        margin-bottom: 20px;
+        .header {
+            text-align: left;
+            h1 {
+                font-size: $base-xxl-font-size;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: $base-xl-font-size;
+            }
+        }
     }
 
-    h2 {
-        font-size: $base-xl-font-size;
-    }
 }
+
+
+

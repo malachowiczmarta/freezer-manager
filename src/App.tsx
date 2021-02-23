@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import Nav from "./components/nav/Nav";
+import Nav from "./components/nav/container/Nav";
 import Home from "./pages/home/Home";
 
 function App() {
