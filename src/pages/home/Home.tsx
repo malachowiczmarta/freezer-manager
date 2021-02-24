@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.scss";
 import { ReactComponent as WomenImg } from "../../assets/img/OpenDoodles.svg";
+import Form from "../../components/form/container/Form";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
         </div>
         <WomenImg />
       </div>
+      <Form />
     </div>
   );
 }

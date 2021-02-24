@@ -1,16 +1,20 @@
 @import "../../assets/styles/variables.scss";
 
+%box-center {
+    display: flex;
+    align-items: center;
+}
+
 .wrapper {
   width: 100%;
   height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
+  @extend %box-center;
   justify-content: center;
+  flex-direction: column;
 
   .main {
     width: 85vw;
-    display: flex;
-    align-items: center;
+    @extend %box-center;
     justify-content: space-between;
     flex-direction: column;
 
@@ -35,7 +39,6 @@
 
 @media (min-width: $breakpoint-small) {
   .wrapper {
-    flex-direction: row;
     justify-content: center;
 
     .main {
