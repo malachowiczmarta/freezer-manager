@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./CategoryList.module.scss"
 
 const productCategories = [
   "Fresh meat",
@@ -9,12 +10,17 @@ const productCategories = [
   "Vegetables",
 ];
 
-const CategoryList = ({ onClick, value }) => {
+type CategoryListProps = {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  value: string;
+};
+
+const CategoryList = ({ onClick, value }: CategoryListProps) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       {productCategories.map((category, index) => (
         <div key={`cat-${index}`}>
-          <button value={category} onClick={onClick} name={category}>
+          <button value={category} onClick={onClick} name={category} type="button">
             {category}
           </button>
         </div>

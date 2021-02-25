@@ -28,7 +28,7 @@ const FormField = ({
   }
 
   return (
-    <div>
+    <>
       <label htmlFor={id}>{label}</label>
       <input
         className={inputStyle}
@@ -39,7 +39,7 @@ const FormField = ({
         value={value}
         onChange={onChange}
       ></input>
-    </div>
+    </>
   );
 };
 

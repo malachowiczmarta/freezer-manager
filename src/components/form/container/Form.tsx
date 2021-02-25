@@ -3,6 +3,7 @@ import styles from "./Form.module.scss"
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../components/FormField";
 import CategoryList from "../components/CategoryList";
+import Button from "../../button/Button";
 
 const initialFormState = {
   name: "",
@@ -64,7 +65,7 @@ const Form = () => {
       >
         <CategoryList onClick={handleCategoryClick} value={formValues.category}/>
       </Dropdown>
-      <button>add</button>
+      <Button label="Add" variant="add" />
     </form>
   );
 };
