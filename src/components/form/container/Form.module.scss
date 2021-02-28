@@ -1,7 +1,24 @@
+@import "../../../assets/styles/variables.scss";
+
 .wrapper {
-    width: 70vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 85vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
+@media (min-width: $breakpoint-small) {
+  .wrapper {
+    width: 70vw;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

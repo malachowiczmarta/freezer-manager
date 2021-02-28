@@ -7,9 +7,20 @@ input {
   border-radius: 2px;
   border: 1px solid $gray;
   height: 50px;
-  margin-right: 10px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.inputName {
-  flex-grow: 1.5;
+@media (min-width: $breakpoint-small) {
+
+}
+
+@media (min-width: $breakpoint-medium) {
+  input {
+    margin-right: 10px;
+  }
+
+  .inputName {
+    flex-grow: 1.5;
+  }
 }

@@ -65,7 +65,7 @@ const Form = () => {
       >
         <CategoryList onClick={handleCategoryClick} value={formValues.category}/>
       </Dropdown>
-      <Button label="Add" variant="add" />
+      <Button variant="add" />
     </form>
   );
 };

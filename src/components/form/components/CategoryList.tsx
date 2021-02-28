@@ -19,8 +19,8 @@ const CategoryList = ({ onClick, value }: CategoryListProps) => {
   return (
     <div className={styles.wrapper}>
       {productCategories.map((category, index) => (
-        <div key={`cat-${index}`}>
-          <button value={category} onClick={onClick} name={category} type="button">
+        <div key={`cat-${index}`} className={styles.listItemWrapper}>
+          <button className={styles.listItem} value={category} onClick={onClick} name={category} type="button">
             {category}
           </button>
         </div>
