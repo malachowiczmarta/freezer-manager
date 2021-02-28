@@ -6,6 +6,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
 }
 
 @media (min-width: $breakpoint-small) {
@@ -16,9 +19,7 @@
 
 @media (min-width: $breakpoint-medium) {
   .wrapper {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
   }
 }

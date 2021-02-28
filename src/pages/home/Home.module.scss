@@ -1,58 +1,78 @@
 @import "../../assets/styles/variables.scss";
 
 %box-center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .wrapper {
-  width: 100%;
-  height: calc(100vh - 70px);
-  @extend %box-center;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-
-  .main {
-    width: 85vw;
+  .container {
+    width: 100%;
     @extend %box-center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
 
-    .header {
-      text-align: left;
-      h1 {
-        font-size: $base-xl-font-size;
-        margin-bottom: 10px;
+    .main {
+      width: 85vw;
+      @extend %box-center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      .header {
+        text-align: left;
+        width: 100%;
+        h1 {
+          font-size: $base-xl-font-size;
+          margin-bottom: 6px;
+          margin-top: 20px;
+        }
+
+        h2 {
+          font-size: $base-l-font-size;
+          margin-bottom: 20px;
+        }
       }
 
-      h2 {
-        font-size: $base-l-font-size;
+      svg {
+        max-width: 80vw;
+        height: 300px;
       }
-    }
-
-    svg {
-      max-width: 80vw;
-      height: 300px;
     }
   }
 }
 
+
 @media (min-width: $breakpoint-small) {
   .wrapper {
-    justify-content: center;
+    .container {
+      .main {
+        width: 70vw;
+      }
+    }
+  }
+}
 
-    .main {
-      width: 70vw;
-      flex-direction: row;
-      .header {
-        text-align: left;
-        h1 {
-          font-size: $base-xxl-font-size;
-          margin-bottom: 20px;
-        }
+@media (min-width: $breakpoint-medium) {
+  .wrapper {
+    height: calc(100vh - 70px);
+    .container {
+      justify-content: center;
 
-        h2 {
-          font-size: $base-xl-font-size;
+      .main {
+        flex-direction: row;
+        .header {
+          text-align: left;
+          h1 {
+            font-size: $base-xxl-font-size;
+            margin-bottom: 20px;
+          }
+
+          h2 {
+            font-size: $base-l-font-size;
+          }
         }
       }
     }
