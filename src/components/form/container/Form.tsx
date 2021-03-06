@@ -14,16 +14,54 @@ const initialFormState = {
 const Form = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formValues, setFormValues] = useState(initialFormState);
+  const [formErrors, setFormErrors] = useState(initialFormState);
 
   const toggleDd = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleInputChange = (e: any) => {
+  const validateField = (form: any) => {
+    if (!form.name) {
+      setFormErrors({
+        ...formErrors,
+        name: "Product name is required",
+      });
+      return;
+    } else if (form.name.length < 2) {
+      setFormErrors({
+        ...formErrors,
+        name: "Product name is too short",
+      });
+      return;
+    } else {
+      setFormErrors({
+        ...formErrors,
+        name: "",
+      });
+    }
+
+    if (!form.date) {
+      setFormErrors({
+        ...formErrors,
+        date: "Date is required",
+      });
+      return;
+    } else {
+      setFormErrors({
+        ...formErrors,
+        date: "",
+      });
+    }
+    return null;
+  };
+
+  const updateField = (e: any) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
+
+    validateField(formValues);
   };
 
   const handleCategoryClick = (e: any) => {
@@ -38,6 +76,7 @@ const Form = () => {
     e.preventDefault();
     let productName = e.target.elements.name.value;
     let date = e.target.elements.date.value;
+    console.log(date);
     console.log(`Name is: ${productName}, date is: ${date}`);
   };
 
@@ -49,7 +88,8 @@ const Form = () => {
         placeholder="Product name"
         type="text"
         value={formValues.name}
-        onChange={handleInputChange}
+        onChange={updateField}
+        error={formErrors.name}
       />
       <FormField
         id="input-date"
@@ -57,7 +97,8 @@ const Form = () => {
         placeholder="date"
         type="date"
         value={formValues.date}
-        onChange={handleInputChange}
+        onChange={updateField}
+        error={formErrors.date}
       />
       <Dropdown
         onClick={toggleDd}

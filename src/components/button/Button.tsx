@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const Button = ({label, variant, onClick}: ButtonProps) => {
     let style = styles.btn;
-    let icon = "";
+    let icon
 
     if(variant === "add") {
         style = styles.btnAdd;

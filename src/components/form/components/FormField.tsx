@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./FormField.module.scss";
 
 type FormFieldProps = {
-  onChange: React.ChangeEvent<HTMLInputElement>;
+  onChange: Function;
   value: string | number;
   label?: string;
   name: string;
   placeholder: string;
   id: string;
-  type: string | number;
+  type: string;
+  error: string;
 };
 
 const FormField = ({
@@ -19,27 +20,26 @@ const FormField = ({
   id,
   placeholder,
   type = "text",
+  error,
 }: FormFieldProps) => {
-  let inputStyle = "";
+  let fieldStyle = "";
   if (name === "name") {
-    inputStyle = styles.inputName;
-  } else {
-    inputStyle = styles.inputDate;
+    fieldStyle = styles.wrapperName;
   }
 
   return (
-    <>
+    <div className={`${styles.wrapper} ${fieldStyle}`}>
       <label htmlFor={id}>{label}</label>
       <input
-        className={inputStyle}
         name={name}
         placeholder={placeholder}
         id={id}
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       ></input>
-    </>
+      <span className={styles.errorMsg}>{error}</span>
+    </div>
   );
 };
 
