@@ -18,8 +18,9 @@ input {
 .errorMsg {
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -20px;
   color: $error;
+  font-size: $small-base-font-size;
 }
 
 @media (min-width: $breakpoint-small) {
