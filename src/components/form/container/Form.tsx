@@ -4,37 +4,12 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../components/FormField";
 import CategoryList from "../components/CategoryList";
 import Button from "../../button/Button";
+import validate from "../../../utils/formValidators";
 
 const initialFormState = {
   name: "",
   category: "",
   date: "",
-};
-
-const validate = (values: any) => {
-  console.log("-=-=-=-", values);
-  let errors = {};
-  console.log(values.name && values.name.length);
-  console.log(values.name.length);
-
-  if (!values.name) {
-    (errors as any).name = "Product name is required!";
-  } else if (values.name.length <= 4) {
-    (errors as any).name = "Product name is too short.";
-  } else {
-    (errors as any).name = "";
-  }
-
-  if (!values.date) {
-    (errors as any).date = "Date is required!";
-  }
-
-  if (!values.category) {
-    (errors as any).category = "Product category is required!";
-  }
-
-  console.log("****", errors);
-  return errors;
 };
 
 const Form = () => {
@@ -70,10 +45,16 @@ const Form = () => {
   const handleAddProduct = (e: any) => {
     e.preventDefault();
     let formErrors: any = validate(formValues);
-    setFormErrors({
-      ...formErrors,
-      formErrors,
-    });
+
+    if (formErrors) {
+      setFormErrors({
+        ...formErrors,
+        formErrors,
+      });
+      console.log("błąd")
+      return
+    }
+
     let productName = e.target.elements.name.value;
     let date = e.target.elements.date.value;
     console.log(formValues);
