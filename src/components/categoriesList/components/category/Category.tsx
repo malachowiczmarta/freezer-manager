@@ -3,7 +3,11 @@ import styles from "./Category.module.scss"
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 import Product from "../product/Product";
 
-const Category = () => {
+type categoryProps = {
+    name: string;
+}
+
+const Category = ({name}: categoryProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenDd = () => {
@@ -12,7 +16,7 @@ const Category = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Dropdown label="Fresh meat" variant="category" open={isOpen} onClick={handleOpenDd}>
+            <Dropdown label={name} variant="category" open={isOpen} onClick={handleOpenDd}>
                 <div className={styles.productContainer}>
                     <Product />
                     <Product />

@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
+  &:first-of-type {
+    margin-top: 50px;
+  }
 
   .productContainer {
     display: flex;
@@ -16,5 +19,4 @@
 }
 
 @media (min-width: $breakpoint-small) {
-
 }
