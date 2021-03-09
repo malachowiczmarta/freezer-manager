@@ -1,21 +1,26 @@
 @import "../../../../assets/styles/variables.scss";
 .wrapper {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 7px;
+  margin-bottom: 7px;
+  background-color: $light-gray;
+  border-radius: 3px;
+
+  .headerWrapper {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 7px 5px;
-    margin-bottom: 5px;
+    justify-content: space-between;
+    align-items: center;
 
-    .headerWrapper {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    h2 {
+      font-size: $base-l-font-size;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
+  }
 }
 
-@media (min-width: $breakpoint-small) {
-
-}

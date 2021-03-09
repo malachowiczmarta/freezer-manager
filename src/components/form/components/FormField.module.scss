@@ -2,7 +2,8 @@
 
 .wrapper {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  width: 100%;
 }
 
 input {
@@ -18,9 +19,9 @@ input {
 .errorMsg {
   position: absolute;
   left: 0;
-  bottom: -20px;
+  top: -17px;
   color: $error;
-  font-size: $small-base-font-size;
+  font-size: $base-font-size;
 }
 
 @media (min-width: $breakpoint-small) {

@@ -13,7 +13,7 @@ const Category = () => {
     return (
         <div className={styles.wrapper}>
             <Dropdown label="Fresh meat" variant="category" open={isOpen} onClick={handleOpenDd}>
-                <div>
+                <div className={styles.productContainer}>
                     <Product />
                     <Product />
                     <Product />

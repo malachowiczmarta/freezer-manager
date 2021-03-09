@@ -2,11 +2,11 @@
 
 .dropdownWrapper {
   position: relative;
-  font-size: $base-m-font-size;
+  font-size: $base-font-size;
 }
 
 .ddFormWrapper {
-  width: 180px;
+  width: 100%;
   border: 1px solid $gray;
 }
 
@@ -41,10 +41,12 @@
 .ddHeaderCategory {
   background-color: $primary-color;
   color: $white-color;
+  font-size: $base-l-font-size;
+  text-transform: uppercase;
 }
 
 @media (min-width: $breakpoint-small) {
-}
-
-@media (min-width: $breakpoint-medium) {
+  .ddFormWrapper {
+    width: 200px;
+  }
 }

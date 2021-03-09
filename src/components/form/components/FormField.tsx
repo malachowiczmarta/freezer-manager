@@ -29,6 +29,7 @@ const FormField = ({
 
   return (
     <div className={`${styles.wrapper} ${fieldStyle}`}>
+      <span className={styles.errorMsg}>{error}</span>
       <label htmlFor={id}>{label}</label>
       <input
         name={name}
@@ -38,7 +39,6 @@ const FormField = ({
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       ></input>
-      <span className={styles.errorMsg}>{error}</span>
     </div>
   );
 };

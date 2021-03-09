@@ -5,7 +5,7 @@ const Product = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.headerWrapper}>
-        <p>Chicken</p>
+        <h2>Chicken</h2>
         <button>delete</button>
       </div>
       <div className={styles.dateWrapper}>

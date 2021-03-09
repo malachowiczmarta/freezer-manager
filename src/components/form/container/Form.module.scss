@@ -8,10 +8,13 @@
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 50px;
-}
 
-.ddContainer {
-  position: relative;
+  .ddContainer {
+    position: relative;
+    //to zmieniałam
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }
 
 .errorMsg {
@@ -32,5 +35,10 @@
   .wrapper {
     flex-direction: row;
     justify-content: space-between;
+
+    .ddContainer {
+      width: auto;
+      margin-bottom: 0px;
+    }
   }
 }
