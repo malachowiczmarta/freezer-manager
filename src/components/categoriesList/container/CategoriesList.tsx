@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "./CategoriesList.module.scss"
 import Category from "../components/category/Category";
 
 const CategoriesList = () => {
 
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Category />
             <Category />
         </div>

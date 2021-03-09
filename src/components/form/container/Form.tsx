@@ -86,7 +86,7 @@ const Form = () => {
         <Dropdown
           onClick={toggleDd}
           open={isOpen}
-          variant="categories"
+          variant="ddForm"
           label={formValues.category ? formValues.category : "Product category"}
         >
           <CategoryList

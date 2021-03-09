@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/variables.scss";
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+@media (min-width: $breakpoint-small) {
+
+}

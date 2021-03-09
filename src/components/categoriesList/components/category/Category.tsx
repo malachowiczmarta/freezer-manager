@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import styles from "./Category.module.scss"
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 
 const Category = () => {
@@ -9,7 +10,7 @@ const Category = () => {
     };
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Dropdown label="Fresh meat" variant="category" open={isOpen} onClick={handleOpenDd}>
                 <div>
                     <div>

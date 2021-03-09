@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss"
 
 function NavLinks() {
   return (
     <div className={styles.navLinksContainer}>
-        <ul>
-          <li>Home</li>
-          <li>My freezer</li>
-          <li>Freezer guide</li>
-        </ul>
+        <div className={styles.wrapper}>
+          <Link to="/">Home</Link>
+          <Link to="/myfreezer">My freezer</Link>
+        </div>
         <button>login</button>
     </div>
   );

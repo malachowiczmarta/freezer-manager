@@ -18,13 +18,22 @@ const Dropdown = ({
   open,
   onClick,
 }: DropdownProps) => {
+  let style: any
+  if(variant === "menu") {
+    style= styles.menuWrapper;
+  }else if(variant=== "category"){
+    style= styles.categoryWrapper;
+  }else if (variant === "ddForm") {
+    style= styles.ddFormWrapper;
+  }
+
   return (
-    <div className={styles.dropdownWrapper}>
+    <div className={`${styles.dropdownWrapper} ${style}`}>
       <button onClick={onClick} className={styles.dropdownHeader} type="button">
         {variant === "menu" ? (
           <MenuIcon />
         ) : (
-          <div className={styles.category}>
+          <div className={styles.ddForm}>
             <span>{label}</span>
             <DownArrowIcon />
           </div>
