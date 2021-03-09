@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from "./Category.module.scss"
 import Dropdown from "../../../../ui/dropdown/Dropdown";
+import Product from "../product/Product";
 
 const Category = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,18 +14,9 @@ const Category = () => {
         <div className={styles.wrapper}>
             <Dropdown label="Fresh meat" variant="category" open={isOpen} onClick={handleOpenDd}>
                 <div>
-                    <div>
-                        <p>Chicken</p>
-                        <time>12.03.2021</time>
-                        <time>12.05.2021</time>
-                        <button>delete</button>
-                    </div>
-
-                    <div>
-                        <p>Chicken</p>
-                        <p>12.03.2021</p>
-                        <button>delete</button>
-                    </div>
+                    <Product />
+                    <Product />
+                    <Product />
                 </div>
             </Dropdown>
         </div>
