@@ -44,8 +44,8 @@ const Form = () => {
 
   const handleAddProduct = (e: any) => {
     e.preventDefault();
-    let formErrors: any = validate(formValues);
 
+    let formErrors: any = validate(formValues);
     if (formErrors) {
       setFormErrors({
         ...formErrors,
@@ -54,6 +54,7 @@ const Form = () => {
       console.log("błąd")
       return
     }
+    setFormErrors(initialFormState)
 
     let productName = e.target.elements.name.value;
     let date = e.target.elements.date.value;
