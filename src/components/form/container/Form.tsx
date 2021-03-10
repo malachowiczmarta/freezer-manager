@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+
+import { connect } from "react-redux";
+import { addProduct } from "../../../store/reducers/products";
+
 import styles from "./Form.module.scss";
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../components/FormField";
@@ -12,7 +16,7 @@ const initialFormState = {
   date: "",
 };
 
-const Form = () => {
+const Form = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
@@ -52,16 +56,20 @@ const Form = () => {
         ...formErrors,
         formErrors,
       });
-      console.log("błąd")
-      return
+      console.log("błąd");
+      return;
     }
     setFormErrors(initialFormState);
     // setIsDisabled(!isDisabled)
 
-    let productName = e.target.elements.name.value;
-    let date = e.target.elements.date.value;
-    console.log(formValues);
-    console.log(`Name is: ${productName}, date is: ${date}`);
+    // let newProduct = {
+    //   name: e.target.elements.name.value,
+    //   category: e.target.elements.category.value,
+    //   date: e.target.elements.date.value,
+    // }
+
+    props.addProduct(formValues);
+    setFormValues(initialFormState);
   };
 
   return (
@@ -98,12 +106,20 @@ const Form = () => {
         </Dropdown>
         <span className={styles.errorMsg}>{formErrors.category}</span>
       </div>
-      <Button 
-        variant="add" 
+      <Button
+        variant="add"
         // disabled={isDisabled}
       />
     </form>
   );
 };
 
-export default Form;
+const mapStateToProps = (state: any) => ({
+  products: state.products.products,
+});
+
+const mapDispatchToProps = {
+  addProduct,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
