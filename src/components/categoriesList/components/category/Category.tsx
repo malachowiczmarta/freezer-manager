@@ -5,10 +5,12 @@ import Product from "../product/Product";
 
 type categoryProps = {
     name: string;
+    data: any;
 }
 
-const Category = ({name}: categoryProps) => {
+const Category = ({name, data}: categoryProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    console.log(data)
 
     const handleOpenDd = () => {
         setIsOpen(!isOpen)
@@ -18,9 +20,9 @@ const Category = ({name}: categoryProps) => {
         <div className={styles.wrapper}>
             <Dropdown label={name} variant="category" open={isOpen} onClick={handleOpenDd}>
                 <div className={styles.productContainer}>
-                    <Product />
-                    <Product />
-                    <Product />
+                    {data.map((product: any, index: any) => (
+                        <Product key={`prod-${index}`} name={product.name} freezingDate={product.date}/>
+                    ))}
                 </div>
             </Dropdown>
         </div>

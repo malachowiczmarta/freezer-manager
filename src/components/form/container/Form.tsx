@@ -62,12 +62,6 @@ const Form = (props: any) => {
     setFormErrors(initialFormState);
     // setIsDisabled(!isDisabled)
 
-    // let newProduct = {
-    //   name: e.target.elements.name.value,
-    //   category: e.target.elements.category.value,
-    //   date: e.target.elements.date.value,
-    // }
-
     props.addProduct(formValues);
     setFormValues(initialFormState);
   };
