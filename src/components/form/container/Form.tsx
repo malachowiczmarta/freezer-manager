@@ -14,6 +14,7 @@ const initialFormState = {
 
 const Form = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
   const [formErrors, setFormErrors] = useState(initialFormState);
 
@@ -54,7 +55,8 @@ const Form = () => {
       console.log("błąd")
       return
     }
-    setFormErrors(initialFormState)
+    setFormErrors(initialFormState);
+    // setIsDisabled(!isDisabled)
 
     let productName = e.target.elements.name.value;
     let date = e.target.elements.date.value;
@@ -96,7 +98,10 @@ const Form = () => {
         </Dropdown>
         <span className={styles.errorMsg}>{formErrors.category}</span>
       </div>
-      <Button variant="add" />
+      <Button 
+        variant="add" 
+        // disabled={isDisabled}
+      />
     </form>
   );
 };

@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 10px 7px;
+  padding: 10px 15px;
   margin-bottom: 7px;
   background-color: $light-gray;
   color: $dark-gray;
@@ -25,6 +25,26 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
+
+    .deleteBtn {
+      width: 20px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition-duration: 0.4s;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        background-color: $light-gray;
+      }
+    }
+  }
+}
+
+.dateWrapper {
+  p {
+    margin-bottom: 4px;
   }
 }
 

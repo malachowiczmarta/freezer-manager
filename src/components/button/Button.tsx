@@ -5,11 +5,12 @@ import styles from "./Button.module.scss"
 type ButtonProps = {
     label?: string;
     variant: string;
+    disabled?: boolean;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 
-const Button = ({label, variant, onClick}: ButtonProps) => {
+const Button = ({label, variant, disabled, onClick}: ButtonProps) => {
     let style = styles.btn;
     let icon
 
@@ -19,7 +20,7 @@ const Button = ({label, variant, onClick}: ButtonProps) => {
     }
 
     return (
-        <button onClick={onClick} className={style}>{label}{icon}</button>
+        <button disabled={disabled} onClick={onClick} className={style}>{label}{icon}</button>
     )
 };
 

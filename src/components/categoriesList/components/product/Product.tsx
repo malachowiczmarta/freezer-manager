@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactComponent as DeleteIcon } from "../../../../assets/icon/delete.svg";
 import styles from "./Product.module.scss";
 
 const Product = () => {
@@ -6,7 +7,7 @@ const Product = () => {
     <div className={styles.wrapper}>
       <div className={styles.headerWrapper}>
         <h2>Chicken</h2>
-        <button>delete</button>
+        <button className={styles.deleteBtn}><DeleteIcon/></button>
       </div>
       <div className={styles.dateWrapper}>
         <p>
