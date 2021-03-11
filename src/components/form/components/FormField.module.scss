@@ -17,6 +17,7 @@ input {
   &::placeholder {
     font-size: $base-font-size;
     color: $black-color;
+    font-family: $form-font;
   }
   &:focus {
     border-color: $primary-color;

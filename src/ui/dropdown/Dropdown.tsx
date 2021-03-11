@@ -1,6 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import { ReactComponent as MenuIcon } from "../../assets/icon/menu.svg";
 import { ReactComponent as DownArrowIcon } from "../../assets/icon/down-arrow.svg";
+import { ReactComponent as UpArrowIcon } from "../../assets/icon/upload.svg";
 import styles from "./Dropdown.module.scss";
 
 type DropdownProps = {
@@ -31,13 +32,17 @@ const Dropdown = ({
 
   return (
     <div className={`${styles.dropdownWrapper} ${styleWrapper}`}>
-      <button onClick={onClick} className={`${styles.dropdownHeader} ${styleHeader}`} type="button">
+      <button
+        onClick={onClick}
+        className={`${styles.dropdownHeader} ${styleHeader}`}
+        type="button"
+      >
         {variant === "menu" ? (
           <MenuIcon />
         ) : (
           <div className={styles.container}>
             <span>{label}</span>
-            <DownArrowIcon />
+            {open ? <UpArrowIcon /> : <DownArrowIcon />}
           </div>
         )}
       </button>
