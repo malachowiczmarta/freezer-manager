@@ -25,6 +25,8 @@ const FormField = ({
   let fieldStyle = "";
   if (name === "name") {
     fieldStyle = styles.wrapperName;
+  } else if (name === "date") {
+    fieldStyle = styles.wrapperDate;
   }
 
   return (

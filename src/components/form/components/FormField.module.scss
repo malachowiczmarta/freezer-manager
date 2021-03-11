@@ -14,6 +14,13 @@ input {
   border: 1px solid $gray;
   height: 50px;
   width: 100%;
+  &::placeholder {
+    font-size: $base-font-size;
+    color: $black-color;
+  }
+  &:focus {
+    border-color: $primary-color;
+  }
 }
 
 .errorMsg {
@@ -24,17 +31,13 @@ input {
   font-size: $base-font-size;
 }
 
-@media (min-width: $breakpoint-small) {
-
-}
-
 @media (min-width: $breakpoint-medium) {
   .wrapper {
     margin-right: 10px;
     margin-bottom: 0px;
   }
 
-  .wrapperName {
-    flex-grow: 1.5;
+  .wrapperDate {
+    width: 200px;
   }
 }

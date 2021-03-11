@@ -45,7 +45,7 @@
   text-transform: uppercase;
 }
 
-@media (min-width: $breakpoint-small) {
+@media (min-width: $breakpoint-medium) {
   .ddFormWrapper {
     width: 200px;
   }
