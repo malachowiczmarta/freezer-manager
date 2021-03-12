@@ -1,27 +1,29 @@
-import React from 'react';
+import React from "react";
 import { ReactComponent as PlusIcon } from "../../assets/icon/plus.svg";
-import styles from "./Button.module.scss"
+import styles from "./Button.module.scss";
 
 type ButtonProps = {
-    label?: string;
-    variant: string;
-    disabled?: boolean;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+  label?: string;
+  variant: string;
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};
 
+const Button = ({ label, variant, disabled, onClick }: ButtonProps) => {
+  let style = styles.btn;
+  let icon;
 
-const Button = ({label, variant, disabled, onClick}: ButtonProps) => {
-    let style = styles.btn;
-    let icon
+  if (variant === "add") {
+    style = styles.btnAdd;
+    icon = <PlusIcon />;
+  }
 
-    if(variant === "add") {
-        style = styles.btnAdd;
-        icon = <PlusIcon />
-    }
-
-    return (
-        <button disabled={disabled} onClick={onClick} className={style}>{label}{icon}</button>
-    )
+  return (
+    <button disabled={disabled} onClick={onClick} className={style}>
+      {label}
+      {icon}
+    </button>
+  );
 };
 
 export default Button;

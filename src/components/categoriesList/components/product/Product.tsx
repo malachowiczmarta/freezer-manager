@@ -5,6 +5,7 @@ import { deleteProduct } from "../../../../store/reducers/products";
 
 import { ReactComponent as DeleteIcon } from "../../../../assets/icon/delete.svg";
 import styles from "./Product.module.scss";
+import DeleteButton from "../../../deleteButton/DeleteButton";
 
 type ProductProps = {
   data: {
@@ -24,9 +25,7 @@ const Product = ({ data, ...props }: ProductProps) => {
     <div className={styles.wrapper}>
       <div className={styles.headerWrapper}>
         <h2>{data.name}</h2>
-        <button className={styles.deleteBtn} onClick={handleDeleteProduct}>
-          <DeleteIcon />
-        </button>
+        <DeleteButton onClick={handleDeleteProduct}/>
       </div>
       <div className={styles.dateWrapper}>
         <p>
