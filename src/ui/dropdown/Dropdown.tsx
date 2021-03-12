@@ -23,6 +23,7 @@ const Dropdown = ({
   let styleHeader: any;
   if (variant === "menu") {
     styleWrapper = styles.menuWrapper;
+    styleHeader = styles.ddHeaderMenu;
   } else if (variant === "category") {
     styleWrapper = styles.categoryWrapper;
     styleHeader = styles.ddHeaderCategory;

@@ -46,6 +46,13 @@
   text-transform: uppercase;
 }
 
+.ddHeaderMenu {
+  background-color: $light-gray;
+  svg {
+    background-color: $light-gray;
+  }
+}
+
 @media (min-width: $breakpoint-medium) {
   .ddFormWrapper {
     width: 200px;
