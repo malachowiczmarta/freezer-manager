@@ -1,9 +1,12 @@
+import { Moment } from "moment";
+
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const DELETE_PRODUCT = "products/DELETE_PRODUCT";
 export type ProductPayload = {
   name: string;
   category: string;
-  date: string;
+  date: Moment;
+  expDate?: Moment;
   id: string;
 };
 
@@ -31,8 +34,8 @@ function reducer(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         products: state.products.filter((product: ProductPayload) => {
-          return product.id !== action.payload
-        })
+          return product.id !== action.payload;
+        }),
       };
     default:
       return state;

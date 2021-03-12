@@ -1,6 +1,6 @@
 const productCategories = [
   "Fresh meat",
-  "Bacon and Sausage",
+  "Sausage",
   "Soups and Stews",
   "Cooked Meat",
   "Fruits",

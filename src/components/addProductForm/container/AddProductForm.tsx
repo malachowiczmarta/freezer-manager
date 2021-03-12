@@ -10,11 +10,12 @@ import FormField from "../components/FormField";
 import CategoryList from "../components/CategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
+import moment from "moment";
 
 const initialFormState = {
   name: "",
   category: "",
-  date: "",
+  date: null,
 };
 
 const AddProductForm = (props: any) => {
@@ -65,6 +66,7 @@ const AddProductForm = (props: any) => {
     let productId = uuidv4();
     let payload: ProductPayload = {
       ...formValues,
+      date: moment(formValues.date),
       id: productId,
     };
     props.addProduct(payload);
@@ -89,9 +91,9 @@ const AddProductForm = (props: any) => {
         name="date"
         placeholder="date"
         type="date"
-        value={formValues.date}
+        value={formValues.date || ""}
         onChange={updateField}
-        error={formErrors.date}
+        error={formErrors.date || ""}
       />
       <div className={styles.ddContainer}>
         <Dropdown
