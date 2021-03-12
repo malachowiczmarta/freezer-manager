@@ -19,7 +19,7 @@ const Category = ({name, data}: categoryProps) => {
             <Dropdown label={name} variant="category" open={isOpen} onClick={handleOpenDd}>
                 <div className={styles.productContainer}>
                     {data && data.length > 0 ? data.map((product: any, index: any) => (
-                        <Product key={`prod-${index}`} name={product.name} freezingDate={product.date}/>
+                        <Product key={`prod-${index}`} data={product}/>
                     )) : <div className={styles.alertWrapper}><h2>You don't have any products in this category.</h2></div>}
                 </div>
             </Dropdown>

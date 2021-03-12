@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { addProduct, IProductPayload } from "../../../store/reducers/products";
+import { addProduct, ProductPayload } from "../../../store/reducers/products";
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./AddProductForm.module.scss";
@@ -63,7 +63,7 @@ const AddProductForm = (props: any) => {
     setFormErrors(initialFormState);
     // setIsDisabled(!isDisabled)
     let productId = uuidv4();
-    let payload: IProductPayload = {
+    let payload: ProductPayload = {
       ...formValues,
       id: productId,
     };

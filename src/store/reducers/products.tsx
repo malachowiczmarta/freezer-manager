@@ -1,11 +1,11 @@
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const DELETE_PRODUCT = "products/DELETE_PRODUCT";
-export type IProductPayload = {
+export type ProductPayload = {
   name: string;
   category: string;
   date: string;
   id: string;
-}
+};
 
 const INITIAL_STATE = {
   products: [],
@@ -16,9 +16,9 @@ export const addProduct = (product: any) => ({
   payload: product,
 });
 
-export const deleteProduct = (product: object) => ({
+export const deleteProduct = (id: string) => ({
   type: DELETE_PRODUCT,
-  payload: product,
+  payload: id,
 });
 
 function reducer(state = INITIAL_STATE, action: any) {
@@ -26,6 +26,13 @@ function reducer(state = INITIAL_STATE, action: any) {
     case ADD_PRODUCT:
       return {
         products: [...state.products, action.payload],
+      };
+    case DELETE_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter((product: ProductPayload) => {
+          return product.id !== action.payload
+        })
       };
     default:
       return state;
