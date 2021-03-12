@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Home.module.scss";
 import { ReactComponent as WomenImg } from "../../assets/img/OpenDoodles.svg";
-import Form from "../../components/form/container/Form";
+import AddProductForm from "../../components/addProductForm/container/AddProductForm";
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
           </div>
           <WomenImg />
         </div>
-        <Form />
+        <AddProductForm />
       </div>
     </div>
   );

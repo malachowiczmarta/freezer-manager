@@ -1,11 +1,17 @@
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const DELETE_PRODUCT = "products/DELETE_PRODUCT";
+export type IProductPayload = {
+  name: string;
+  category: string;
+  date: string;
+  id: string;
+}
 
 const INITIAL_STATE = {
   products: [],
 };
 
-export const addProduct = (product: object) => ({
+export const addProduct = (product: any) => ({
   type: ADD_PRODUCT,
   payload: product,
 });

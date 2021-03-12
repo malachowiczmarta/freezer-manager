@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { addProduct } from "../../../store/reducers/products";
+import { addProduct, IProductPayload } from "../../../store/reducers/products";
 import { v4 as uuidv4 } from "uuid";
 
-import styles from "./Form.module.scss";
+import styles from "./AddProductForm.module.scss";
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../components/FormField";
 import CategoryList from "../components/CategoryList";
@@ -15,10 +15,9 @@ const initialFormState = {
   name: "",
   category: "",
   date: "",
-  id: "",
 };
 
-const Form = (props: any) => {
+const AddProductForm = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
@@ -39,15 +38,6 @@ const Form = (props: any) => {
     //   ...formErrors,
     //   formErrors,
     // });
-  };
-
-  const setProductId = () => {
-    let productId = uuidv4();
-    console.log(productId)
-    setFormValues({
-      ...formValues,
-      id: productId,
-    });
   };
 
   const handleCategoryClick = (e: any) => {
@@ -72,9 +62,14 @@ const Form = (props: any) => {
     }
     setFormErrors(initialFormState);
     // setIsDisabled(!isDisabled)
-    setProductId();
-    props.addProduct(formValues);
-    console.log(formValues)
+    let productId = uuidv4();
+    let payload: IProductPayload = {
+      ...formValues,
+      id: productId,
+    };
+    props.addProduct(payload);
+
+    console.log(formValues);
     setFormValues(initialFormState);
   };
 
@@ -128,4 +123,4 @@ const mapDispatchToProps = {
   addProduct,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProductForm);
