@@ -10,8 +10,6 @@ type categoryProps = {
 
 const Category = ({name, data}: categoryProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    console.log(data)
-
     const handleOpenDd = () => {
         setIsOpen(!isOpen)
     };

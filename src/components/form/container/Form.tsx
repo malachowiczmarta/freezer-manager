@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { addProduct } from "../../../store/reducers/products";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Form.module.scss";
 import Dropdown from "../../../ui/dropdown/Dropdown";
@@ -14,6 +15,7 @@ const initialFormState = {
   name: "",
   category: "",
   date: "",
+  id: "",
 };
 
 const Form = (props: any) => {
@@ -39,6 +41,15 @@ const Form = (props: any) => {
     // });
   };
 
+  const setProductId = () => {
+    let productId = uuidv4();
+    console.log(productId)
+    setFormValues({
+      ...formValues,
+      id: productId,
+    });
+  };
+
   const handleCategoryClick = (e: any) => {
     setFormValues({
       ...formValues,
@@ -61,8 +72,9 @@ const Form = (props: any) => {
     }
     setFormErrors(initialFormState);
     // setIsDisabled(!isDisabled)
-
+    setProductId();
     props.addProduct(formValues);
+    console.log(formValues)
     setFormValues(initialFormState);
   };
 
