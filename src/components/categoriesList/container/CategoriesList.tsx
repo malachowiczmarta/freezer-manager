@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import styles from "./CategoriesList.module.scss";
 import Category from "../components/category/Category";
-import { CategoryType } from "../../../utils/categoryType";
+import { CategoryType } from "../../../utils/types";
 
 const CategoriesList = (props: any) => {
   const { products } = props;

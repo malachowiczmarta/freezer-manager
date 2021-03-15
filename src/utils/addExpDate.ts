@@ -1,5 +1,5 @@
 import moment from "moment";
-import { CategoryType } from "./categoryType";
+import { CategoryType } from "./types";
 
 const addExpDate = (product: any) => {
   if (product.category === CategoryType.FRESH_MEAT) {

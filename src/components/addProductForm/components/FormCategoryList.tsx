@@ -1,5 +1,5 @@
 import React from "react";
-import { CategoryType } from "../../../utils/categoryType";
+import { CategoryType } from "../../../utils/types";
 import styles from "./FormCategoryList.module.scss";
 
 type CategoryListProps = {
