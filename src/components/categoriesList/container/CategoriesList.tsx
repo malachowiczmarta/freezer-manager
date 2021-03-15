@@ -15,7 +15,7 @@ const CategoriesList = (props: any) => {
 
   return (
     <div className={styles.wrapper}>
-      {Object.entries(CategoryType).map(([category, index]) => {
+      {Object.values(CategoryType).map((category, index) => {
         let productsFromCategory = filterCategory(category);
         return (
           <Category

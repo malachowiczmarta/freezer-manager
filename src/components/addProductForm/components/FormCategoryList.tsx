@@ -9,7 +9,7 @@ type CategoryListProps = {
 const FormCategoryList = ({ onClick }: CategoryListProps) => {
   return (
     <div className={styles.wrapper}>
-      {Object.entries(CategoryType).map(([category, index]) => (
+      {Object.values(CategoryType).map((category, index) => (
         <div key={`cat-${index}`} className={styles.listItemWrapper}>
           <button
             className={styles.listItem}
