@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./AddProductForm.module.scss";
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../components/FormField";
-import CategoryList from "../components/CategoryList";
+import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
 import moment from "moment";
@@ -102,9 +102,8 @@ const AddProductForm = (props: any) => {
           variant="ddForm"
           label={formValues.category ? formValues.category : "Product category"}
         >
-          <CategoryList
+          <FormCategoryList
             onClick={handleCategoryClick}
-            value={formValues.category}
           />
         </Dropdown>
         <span className={styles.errorMsg}>{formErrors.category}</span>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import moment, { Moment } from "moment";
+import moment from "moment";
 import styles from "./Category.module.scss";
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 import Product from "../product/Product";
+import { CategoryType } from "../../../../utils/categoryType";
 
 type categoryProps = {
   name: string;
@@ -16,42 +17,42 @@ const Category = ({ name, data }: categoryProps) => {
   };
 
   const AddExpDate = (product: any) => {
-    if (product.category === "Fresh meat") {
+    if (product.category === CategoryType.FRESH_MEAT) {
       let newDate = moment(product.date).add(12, "months");
 
       return (product = {
         ...product,
         expDate: newDate,
       });
-    } else if (product.category === "Sausage") {
+    } else if (product.category === CategoryType.SAUSAGE) {
       let newDate = moment(product.date).add(2, "months");
 
       return (product = {
         ...product,
         expDate: newDate,
       });
-    } else if (product.category === "Soups and Stews") {
+    } else if (product.category === CategoryType.SOUPS_AND_STEWS) {
       let newDate = moment(product.date).add(12, "months");
 
       return (product = {
         ...product,
         expDate: newDate,
       });
-    } else if (product.category === "Cooked Meat") {
+    } else if (product.category === CategoryType.COOKED_MEAT) {
       let newDate = moment(product.date).add(3, "months");
 
       return (product = {
         ...product,
         expDate: newDate,
       });
-    } else if (product.category === "Fruits") {
+    } else if (product.category === CategoryType.FRUITS) {
       let newDate = moment(product.date).add(6, "months");
 
       return (product = {
         ...product,
         expDate: newDate,
       });
-    } else if (product.category === "Vegetables") {
+    } else if (product.category === CategoryType.VEGETABLES) {
       let newDate = moment(product.date).add(12, "months");
 
       return (product = {

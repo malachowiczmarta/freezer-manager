@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import styles from "./CategoriesList.module.scss";
 import Category from "../components/category/Category";
-import categoryName from "../../../utils/categoryName";
+import { CategoryType } from "../../../utils/categoryType";
 
 const CategoriesList = (props: any) => {
   const { products } = props;
@@ -15,9 +15,15 @@ const CategoriesList = (props: any) => {
 
   return (
     <div className={styles.wrapper}>
-      {categoryName.map((category, index) => {
+      {Object.entries(CategoryType).map(([category, index]) => {
         let productsFromCategory = filterCategory(category);
-        return <Category key={`${category}-${index}`} name={category} data={productsFromCategory} />;
+        return (
+          <Category
+            key={`${category}-${index}`}
+            name={category}
+            data={productsFromCategory}
+          />
+        );
       })}
     </div>
   );

@@ -1,16 +1,15 @@
 import React from "react";
-import productCategories from "../../../utils/categoryName";
-import styles from "./CategoryList.module.scss";
+import { CategoryType } from "../../../utils/categoryType";
+import styles from "./FormCategoryList.module.scss";
 
 type CategoryListProps = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  value: string;
 };
 
-const CategoryList = ({ onClick, value }: CategoryListProps) => {
+const FormCategoryList = ({ onClick }: CategoryListProps) => {
   return (
     <div className={styles.wrapper}>
-      {productCategories.map((category, index) => (
+      {Object.entries(CategoryType).map(([category, index]) => (
         <div key={`cat-${index}`} className={styles.listItemWrapper}>
           <button
             className={styles.listItem}
@@ -27,4 +26,4 @@ const CategoryList = ({ onClick, value }: CategoryListProps) => {
   );
 };
 
-export default CategoryList;
+export default FormCategoryList;
