@@ -8,11 +8,9 @@ function Alert(props: IAlertState) {
   return (
     <div>
       {props.alerts.map((alert: AlertObject) => (
-        <div className={styles.wrapper}>
-          <div className={styles.alertContainer}>
-            <p>icon</p>
+        <div key={`alert-${alert.id}`} className={styles.wrapper}>
+            <span>icon</span>
             <p>{alert.message}</p>
-          </div>
         </div>
       ))}
     </div>

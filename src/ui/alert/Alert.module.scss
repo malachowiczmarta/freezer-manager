@@ -1,10 +1,14 @@
 .wrapper {
-    padding: 10px 10px;
-}
-
-.alertContainer {
-    width: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  position: fixed;
+  top: 70px;
+  right: 7.5vw;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  border: 1px solid black;
+  p {
+    margin-left: 5px;
+  }
 }

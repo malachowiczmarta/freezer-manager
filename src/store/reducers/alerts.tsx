@@ -33,18 +33,19 @@ function reducer(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case ADD_ALERT:
       const alerts = [...state.alerts];
-      if (!action.payload.alert.id) {
-        action.payload.alert.id = uuidv4();
+      console.log(action.payload)
+      if (!action.payload.id) {
+        action.payload.id = uuidv4();
       }
-      if (!action.payload.alert.displayFor) {
-        action.payload.alert.displayFor = 5000;
+      if (!action.payload.displayFor) {
+        action.payload.displayFor = 5000;
       }
-      if (!action.payload.alert.type) {
-        action.payload.alert.displayFor = AlertType.INFO;
+      if (!action.payload.type) {
+        action.payload.displayFor = AlertType.INFO;
       }
       return {
         ...state,
-        alerts: [...alerts, action.payload.alert],
+        alerts: [...alerts, action.payload],
       };
     case REMOVE_ALERT:
       return {
