@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { addProduct, ProductPayload } from "../../../store/reducers/products";
+import { addAlert } from "../../../store/reducers/alerts";
+
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./AddProductForm.module.scss";
@@ -10,6 +12,7 @@ import FormField from "../components/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
+import { AlertType } from "../../../utils/types";
 import moment from "moment";
 
 const initialFormState = {
@@ -62,7 +65,6 @@ const AddProductForm = (props: any) => {
       return;
     }
     setFormErrors(initialFormState);
-    // setIsDisabled(!isDisabled)
     let productId = uuidv4();
     let payload: ProductPayload = {
       ...formValues,
@@ -70,8 +72,12 @@ const AddProductForm = (props: any) => {
       id: productId,
     };
     props.addProduct(payload);
+    const alert = {
+      message: "dodano produkt do listy",
+      type: AlertType.INFO,
+    };
+    props.addAlert(alert);
 
-    console.log(formValues);
     setFormValues(initialFormState);
   };
 
@@ -102,9 +108,7 @@ const AddProductForm = (props: any) => {
           variant="ddForm"
           label={formValues.category ? formValues.category : "Product category"}
         >
-          <FormCategoryList
-            onClick={handleCategoryClick}
-          />
+          <FormCategoryList onClick={handleCategoryClick} />
         </Dropdown>
         <span className={styles.errorMsg}>{formErrors.category}</span>
       </div>
@@ -118,10 +122,12 @@ const AddProductForm = (props: any) => {
 
 const mapStateToProps = (state: any) => ({
   products: state.products.products,
+  alerts: state.alerts.alerts,
 });
 
 const mapDispatchToProps = {
   addProduct,
+  addAlert,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProductForm);

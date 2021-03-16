@@ -1,12 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
+import { IAlertState } from "../../store/reducers/alerts";
+import styles from "./Alert.module.scss";
 
-type AlertProps = {
-  children: any;
-};
-
-function Alert({ children, ...props }: AlertProps) {
-  return <div>{children}</div>;
+function Alert(props: IAlertState) {
+  console.log(props);
+  return (
+    <div>
+      {props.alerts.map((alert: Object) => (
+        <div className={styles.wrapper}>
+          <div className={styles.alertContainer}>
+            <p>icon</p>
+            <p>treść alertu</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 const mapStateToProps = (state: any) => {

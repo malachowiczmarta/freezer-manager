@@ -1,6 +1,8 @@
 import { AlertType } from "../../utils/types";
+import { v4 as uuidv4 } from "uuid";
 
-const ALERT = "alert/ALERT";
+const ADD_ALERT = "alert/ADD_ALERT";
+const REMOVE_ALERT = "alert/REMOVE_ALERT";
 
 export type IAlertState = {
   alerts: AlertObject[];
@@ -9,54 +11,46 @@ export type IAlertState = {
 type AlertObject = {
   message: string;
   displayFor?: number;
-  id?: number;
+  id?: string;
   type?: AlertType;
 };
 
 const INITIAL_STATE = {
-  alerts: [
-    {
-      type: AlertType.INFO,
-      message: "",
-      displayFor: null,
-      id: null,
-    },
-    {
-      type: AlertType.ERROR,
-      message: "",
-      displayFor: null,
-      id: null,
-    },
-    {
-      type: AlertType.SUCCESS,
-      message: "",
-      displayFor: null,
-      id: null,
-    },
-    {
-      type: AlertType.WARNING,
-      message: "",
-      displayFor: null,
-      id: null,
-    },
-  ],
+  alerts: [],
 };
 
-export const showAlert = (data: IAlertState) => ({
-  type: ALERT,
+export const addAlert = (data: IAlertState) => ({
+  type: ADD_ALERT,
   payload: data,
+});
+
+export const removeAlert = (id: string) => ({
+  type: REMOVE_ALERT,
+  payload: id,
 });
 
 function reducer(state = INITIAL_STATE, action: any) {
   switch (action.type) {
-    case ALERT:
+    case ADD_ALERT:
+      const alerts = [...state.alerts];
+      if (!action.payload.alert.id) {
+        action.payload.alert.id = uuidv4();
+      }
+      if (!action.payload.alert.displayFor) {
+        action.payload.alert.displayFor = 5000;
+      }
+      if (!action.payload.alert.type) {
+        action.payload.alert.displayFor = AlertType.INFO;
+      }
       return {
         ...state,
-        alerts: state.alerts.map((alert: any) => {
-          if (alert.type === action.payload.type) {
-            return action.payload;
-          }
-          return alert;
+        alerts: [...alerts, action.payload.alert],
+      };
+    case REMOVE_ALERT:
+      return {
+        ...state,
+        alerts: state.alerts.filter((alert: any) => {
+          return alert.id !== action.payload.id;
         }),
       };
     default:
