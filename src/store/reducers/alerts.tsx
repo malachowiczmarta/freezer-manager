@@ -8,7 +8,7 @@ export type IAlertState = {
   alerts: AlertObject[];
 };
 
-type AlertObject = {
+export type AlertObject = {
   message: string;
   displayFor?: number;
   id?: string;

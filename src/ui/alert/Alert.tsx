@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { IAlertState } from "../../store/reducers/alerts";
+import { IAlertState, AlertObject } from "../../store/reducers/alerts";
 import styles from "./Alert.module.scss";
 
 function Alert(props: IAlertState) {
   console.log(props);
   return (
     <div>
-      {props.alerts.map((alert: Object) => (
+      {props.alerts.map((alert: AlertObject) => (
         <div className={styles.wrapper}>
           <div className={styles.alertContainer}>
             <p>icon</p>
-            <p>treść alertu</p>
+            <p>{alert.message}</p>
           </div>
         </div>
       ))}
