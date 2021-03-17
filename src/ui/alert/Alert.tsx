@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { alertsSelector } from "../../store/selectors/selectors";
+
 import { removeAlert } from "../../store/reducers/alerts";
 import { AlertObject } from "../../store/reducers/alerts";
 import { ReactComponent as CheckIcon } from "../../assets/icon/check.svg";
@@ -59,7 +61,7 @@ function Alert(props: AlertProps) {
 
 const mapStateToProps = (state: any) => {
   return {
-    alerts: state.alerts.alerts,
+    alerts: alertsSelector(state),
   };
 };
 

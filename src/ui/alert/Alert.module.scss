@@ -4,12 +4,15 @@
   position: fixed;
   top: 70px;
   right: 7.5vw;
-  width: 200px;
+  width: 250px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 10px 7px;
   border-radius: 2px;
+  background-color: $white-color;
+  z-index: 99;
+  font-size: $base-font-size;
   p {
     margin-left: 7px;
   }

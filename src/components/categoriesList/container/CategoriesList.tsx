@@ -1,6 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
+import { productsSelector } from "../../../store/selectors/selectors";
 
 import styles from "./CategoriesList.module.scss";
 import Category from "../components/category/Category";
@@ -30,7 +31,7 @@ const CategoriesList = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  products: state.products.products,
+  products: productsSelector(state),
 });
 
 export default connect(mapStateToProps)(CategoriesList);

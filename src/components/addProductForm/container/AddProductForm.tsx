@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, ProductPayload } from "../../../store/reducers/products";
 import { addAlert } from "../../../store/reducers/alerts";
+import {
+  productsSelector,
+  alertsSelector,
+} from "../../../store/selectors/selectors";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,7 +17,7 @@ import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
 import moment from "moment";
-import AlertService, {IAlertService} from "../../../service/alertService";
+import AlertService, { IAlertService } from "../../../service/alertService";
 
 const initialFormState = {
   name: "",
@@ -26,7 +30,7 @@ const AddProductForm = (props: any) => {
   // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
   const [formErrors, setFormErrors] = useState(initialFormState);
-  const alertService: IAlertService = new AlertService;
+  const alertService: IAlertService = new AlertService();
 
   const toggleDd = () => {
     setIsOpen(!isOpen);
@@ -74,7 +78,7 @@ const AddProductForm = (props: any) => {
     };
     props.addProduct(payload);
 
-    alertService.addSuccessAlert('Dodano produkt do listy');
+    alertService.addSuccessAlert("Success, product added to the list.");
 
     setFormValues(initialFormState);
   };
@@ -119,8 +123,8 @@ const AddProductForm = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  products: state.products.products,
-  alerts: state.alerts.alerts,
+  products: productsSelector(state),
+  alerts: alertsSelector(state),
 });
 
 const mapDispatchToProps = {
