@@ -43,7 +43,7 @@ function Alert(props: AlertProps) {
 
   return (
     <div>
-      {alerts.length && alerts.map((alert) => {
+      {alerts.length ? alerts.map((alert) => {
         const alertIcon = setIcon(alert.type);
         return (
           <div
@@ -54,7 +54,7 @@ function Alert(props: AlertProps) {
             <p>{alert.message}</p>
           </div>
         );
-      })}
+      }) : null}
     </div>
   );
 }
