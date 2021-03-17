@@ -73,8 +73,8 @@ const AddProductForm = (props: any) => {
     };
     props.addProduct(payload);
     const alert = {
-      message: "dodano produkt do listy",
-      type: AlertType.INFO,
+      message: "Product added to the list",
+      type: AlertType.SUCCESS,
     };
     props.addAlert(alert);
 

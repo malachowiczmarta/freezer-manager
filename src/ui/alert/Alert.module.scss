@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables.scss";
+
 .wrapper {
   position: fixed;
   top: 70px;
@@ -5,10 +7,18 @@
   width: 200px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px 10px;
-  border: 1px solid black;
+  justify-content: flex-start;
+  padding: 10px 7px;
+  border-radius: 2px;
   p {
-    margin-left: 5px;
+    margin-left: 7px;
+  }
+}
+
+.success {
+  border: 2px solid $success;
+  color: $success;
+  svg {
+    fill: $success;
   }
 }
