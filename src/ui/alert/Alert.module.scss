@@ -22,3 +22,27 @@
     fill: $success;
   }
 }
+
+.info {
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  svg {
+    fill: $primary-color;
+  }
+}
+
+.error {
+  border: 2px solid $error;
+  color: $error;
+  svg {
+    fill: $error;
+  }
+}
+
+.warning {
+  border: 2px solid $warning;
+  color: $warning;
+  svg {
+    fill: $warning;
+  }
+}

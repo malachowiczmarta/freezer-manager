@@ -1,6 +1,6 @@
 import { addAlert } from '../store/reducers/alerts';
 import {AlertType} from "../utils/types";
-import store from "../store";
+import store from "../store/store";
 
 
 export interface IAlertService {

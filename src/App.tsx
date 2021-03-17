@@ -11,10 +11,11 @@ function App() {
   return (
     <div className="App">
         <Router>
-          <Nav />
+          <Nav/>
+          <Alert/>
           <Switch>
             <Route path="/myfreezer">
-              <MyFreezer />
+              <MyFreezer/>
             </Route>
             <Route path="/">
               <Home />
