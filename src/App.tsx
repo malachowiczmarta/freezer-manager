@@ -4,6 +4,7 @@ import "./App.module.scss";
 import Nav from "./components/nav/container/Nav";
 import Home from "./pages/home/Home";
 import MyFreezer from "./pages/myFreezer/MyFreezer";
+import Alert from "./ui/alert/Alert";
 
 
 function App() {
