@@ -19,7 +19,7 @@ const INITIAL_STATE = {
   alerts: [],
 };
 
-export const addAlert = (data: IAlertState) => ({
+export const addAlert = (data: AlertObject) => ({
   type: ADD_ALERT,
   payload: data,
 });
@@ -50,7 +50,7 @@ function reducer(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         alerts: state.alerts.filter((alert: any) => {
-          console.log(action.payload)
+          console.log(action.payload);
           return alert.id !== action.payload;
         }),
       };
