@@ -1,8 +1,8 @@
 import storage from "redux-persist/lib/storage";
 import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE} from "redux-persist";
-import rootReducer from "../rootReducers";
 import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import { createEpicMiddleware } from "redux-observable";
+import rootReducer from "./reducers/rootReducer";
 
 const defaultMiddleware = getDefaultMiddleware(({
    serializableCheck: {

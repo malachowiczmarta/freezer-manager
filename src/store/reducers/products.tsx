@@ -2,6 +2,11 @@ import { Moment } from "moment";
 
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const DELETE_PRODUCT = "products/DELETE_PRODUCT";
+
+export type IProductState = {
+  products: any[];
+}
+
 export type ProductPayload = {
   name: string;
   category: string;
@@ -10,7 +15,7 @@ export type ProductPayload = {
   id: string;
 };
 
-const INITIAL_STATE = {
+const INITIAL_STATE: IProductState = {
   products: [],
 };
 
