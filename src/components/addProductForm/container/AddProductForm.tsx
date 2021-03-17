@@ -12,8 +12,8 @@ import FormField from "../components/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
-import { AlertType } from "../../../utils/types";
 import moment from "moment";
+import AlertService, {IAlertService} from "../../../service/alertService";
 
 const initialFormState = {
   name: "",
@@ -26,6 +26,7 @@ const AddProductForm = (props: any) => {
   // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
   const [formErrors, setFormErrors] = useState(initialFormState);
+  const alertService: IAlertService = new AlertService;
 
   const toggleDd = () => {
     setIsOpen(!isOpen);
@@ -72,11 +73,8 @@ const AddProductForm = (props: any) => {
       id: productId,
     };
     props.addProduct(payload);
-    const alert = {
-      message: "dodano produkt do listy",
-      type: AlertType.INFO,
-    };
-    props.addAlert(alert);
+
+    alertService.addSuccessAlert('Dodano produkt do listy');
 
     setFormValues(initialFormState);
   };
