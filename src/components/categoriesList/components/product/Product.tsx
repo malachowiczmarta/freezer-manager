@@ -24,6 +24,7 @@ const Product = ({ data, ...props }: ProductProps) => {
   };
 
   const freezingDate = moment(data.date).format("YYYY-MM-DD");
+  const expiredDate = moment(data.expDate).format("YYYY-MM-DD");
 
   return (
     <div className={styles.wrapper}>
@@ -33,11 +34,11 @@ const Product = ({ data, ...props }: ProductProps) => {
       </div>
       <div className={styles.dateWrapper}>
         <p>
-          Freezing date: <time>{data.date.format("YYYY-MM-DD")}</time>
+          Freezing date: <time>{freezingDate}</time>
         </p>
         <p>
-          Best to defrost before:{" "}
-          <time>{data.expDate.format("YYYY-MM-DD")}</time>
+          Best to defrost before:
+          <time>{expiredDate}</time>
         </p>
       </div>
     </div>

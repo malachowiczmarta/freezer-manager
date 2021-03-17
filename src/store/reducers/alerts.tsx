@@ -24,7 +24,7 @@ export const addAlert = (data: IAlertState) => ({
   payload: data,
 });
 
-export const removeAlert = (id: string) => ({
+export const removeAlert = (id: any) => ({
   type: REMOVE_ALERT,
   payload: id,
 });
@@ -33,7 +33,6 @@ function reducer(state = INITIAL_STATE, action: any) {
   switch (action.type) {
     case ADD_ALERT:
       const alerts = [...state.alerts];
-      console.log(action.payload)
       if (!action.payload.id) {
         action.payload.id = uuidv4();
       }

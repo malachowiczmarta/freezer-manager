@@ -4,17 +4,22 @@ import { removeAlert } from "../../store/reducers/alerts";
 import { IAlertState, AlertObject } from "../../store/reducers/alerts";
 import styles from "./Alert.module.scss";
 
-function Alert(props: IAlertState) {
-  const { alerts } = props;
+type AlertProps = {
+  alerts: AlertObject[];
+  removeAlert: Function;
+}
+
+function Alert(props: AlertProps) {
+  const { alerts, removeAlert } = props;
   console.log(props);
 
   useEffect(() => {
     alerts.map((alert) => {
       console.log("set timeout", alert.displayFor)
-      const timer = setTimeout(() => alert.id && removeAlert(alert.id), alert.displayFor);
+      const timer = setTimeout(() => removeAlert(alert.id), alert.displayFor);
       return () => clearTimeout(timer);
     });
-  }, [alerts]);
+  }, [alerts, removeAlert]);
 
   return (
     <div>
