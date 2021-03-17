@@ -6,7 +6,7 @@ import { deleteProduct } from "../../../../store/reducers/products";
 import styles from "./Product.module.scss";
 import DeleteButton from "../../../deleteButton/DeleteButton";
 
-import { Moment } from "moment";
+import moment, { Moment } from "moment";
 
 type ProductProps = {
   data: {
@@ -22,6 +22,8 @@ const Product = ({ data, ...props }: ProductProps) => {
   const handleDeleteProduct = () => {
     props.deleteProduct(data.id);
   };
+
+  const freezingDate = moment(data.date).format("YYYY-MM-DD");
 
   return (
     <div className={styles.wrapper}>

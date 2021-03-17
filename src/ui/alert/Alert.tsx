@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { removeAlert } from "../../store/reducers/alerts";
 import { IAlertState, AlertObject } from "../../store/reducers/alerts";
 import styles from "./Alert.module.scss";
 
 function Alert(props: IAlertState) {
+  const { alerts } = props;
   console.log(props);
+
+  useEffect(() => {
+    alerts.map((alert) => {
+      console.log("set timeout", alert.displayFor)
+      const timer = setTimeout(() => alert.id && removeAlert(alert.id), alert.displayFor);
+      return () => clearTimeout(timer);
+    });
+  }, [alerts]);
+
   return (
     <div>
-      {props.alerts.map((alert: AlertObject) => (
+      {alerts.map((alert: AlertObject) => (
         <div key={`alert-${alert.id}`} className={styles.wrapper}>
-            <span>icon</span>
-            <p>{alert.message}</p>
+          <span>icon</span>
+          <p>{alert.message}</p>
         </div>
       ))}
     </div>
@@ -23,4 +34,8 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps)(Alert);
+const mapDispatchToProps = {
+  removeAlert,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Alert);
