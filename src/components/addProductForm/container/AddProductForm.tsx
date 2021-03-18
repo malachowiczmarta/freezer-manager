@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, ProductPayload } from "../../../store/reducers/products";
 import { addAlert } from "../../../store/reducers/alerts";
-import {
-  productsSelector,
-  alertsSelector,
-} from "../../../store/selectors/selectors";
+import { productsSelector } from "../../../store/selectors/productsSelectors";
+import { alertsSelector } from "../../../store/selectors/alertsSelectors";
 
 import { v4 as uuidv4 } from "uuid";
 

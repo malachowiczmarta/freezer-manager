@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { productsSelector } from "../../../store/selectors/selectors";
+import { productsSelector } from "../../../store/selectors/productsSelectors";
 
 import styles from "./CategoriesList.module.scss";
 import Category from "../components/category/Category";

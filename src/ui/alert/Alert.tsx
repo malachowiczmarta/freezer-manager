@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { alertsSelector } from "../../store/selectors/selectors";
+import { alertsSelector } from "../../store/selectors/alertsSelectors";
 
 import { removeAlert } from "../../store/reducers/alerts";
 import { AlertObject } from "../../store/reducers/alerts";
