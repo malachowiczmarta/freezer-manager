@@ -36,6 +36,7 @@ const Category = ({ name, data }: categoryProps) => {
     <div className={styles.wrapper}>
       <Dropdown
         label={name}
+        productAmountLabel={`${productsList.length} products`}
         variant="category"
         open={isOpen}
         onClick={handleOpenDd}

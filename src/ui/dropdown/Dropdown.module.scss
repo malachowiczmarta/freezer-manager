@@ -36,13 +36,26 @@
       height: 15px;
       margin-left: 10px;
     }
+    .labelContainer {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      .productAmount {
+        font-size: $base-font-size;
+        text-transform: none;
+        color: $gray;
+      }
+    }
   }
 }
 
 .ddHeaderCategory {
+  height: 65px;
+  padding: 0 15px;
   background-color: $primary-color;
   color: $white-color;
-  font-size: $base-l-font-size;
+  font-size: $base-ml-font-size;
   text-transform: uppercase;
 }
 

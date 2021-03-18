@@ -7,6 +7,7 @@ import styles from "./Dropdown.module.scss";
 type DropdownProps = {
   children: any;
   label?: string;
+  productAmountLabel?: string;
   open: boolean;
   variant: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -15,6 +16,7 @@ type DropdownProps = {
 const Dropdown = ({
   children,
   label,
+  productAmountLabel,
   variant,
   open,
   onClick,
@@ -42,7 +44,10 @@ const Dropdown = ({
           <MenuIcon />
         ) : (
           <div className={styles.container}>
-            <span>{label}</span>
+            <div className={styles.labelContainer}>
+              <span>{label}</span>
+              {productAmountLabel ? <span className={styles.productAmount}>{productAmountLabel}</span> : null}
+            </div>
             {open ? <UpArrowIcon /> : <DownArrowIcon />}
           </div>
         )}
