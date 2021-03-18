@@ -50,7 +50,6 @@ function reducer(state = INITIAL_STATE, action: any) {
       return {
         ...state,
         alerts: state.alerts.filter((alert: AlertObject) => {
-          console.log(action.payload);
           return alert.id !== action.payload;
         }),
       };

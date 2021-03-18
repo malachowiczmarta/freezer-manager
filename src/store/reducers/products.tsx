@@ -1,5 +1,3 @@
-import { Moment } from "moment";
-
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const DELETE_PRODUCT = "products/DELETE_PRODUCT";
 
@@ -10,8 +8,8 @@ export type IProductState = {
 export type ProductPayload = {
   name: string;
   category: string;
-  date: Moment;
-  expDate?: Moment;
+  date: string;
+  expDate?: string;
   id: string;
 };
 

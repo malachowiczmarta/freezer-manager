@@ -6,13 +6,13 @@ import { deleteProduct } from "../../../../store/reducers/products";
 import styles from "./Product.module.scss";
 import DeleteButton from "../../../deleteButton/DeleteButton";
 
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 type ProductProps = {
   data: {
     name: string;
-    date: Moment;
-    expDate: Moment;
+    date: string;
+    expDate: string;
     id: string;
   };
   deleteProduct: Function;
@@ -23,9 +23,6 @@ const Product = ({ data, ...props }: ProductProps) => {
     props.deleteProduct(data.id);
   };
 
-  const freezingDate = moment(data.date).format("YYYY-MM-DD");
-  const expiredDate = moment(data.expDate).format("YYYY-MM-DD");
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.headerWrapper}>
@@ -34,11 +31,11 @@ const Product = ({ data, ...props }: ProductProps) => {
       </div>
       <div className={styles.dateWrapper}>
         <p>
-          Freezing date: <time>{freezingDate}</time>
+          Freezing date: <time>{data.date}</time>
         </p>
         <p>
           Best to defrost before:
-          <time>{expiredDate}</time>
+           <time>{data.expDate}</time>
         </p>
       </div>
     </div>

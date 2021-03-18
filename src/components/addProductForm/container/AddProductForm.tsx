@@ -14,13 +14,12 @@ import FormField from "../components/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import validate from "../../../utils/formValidators";
-import moment from "moment";
 import AlertService, { IAlertService } from "../../../service/alertService";
 
 const initialFormState = {
   name: "",
   category: "",
-  date: null,
+  date: "",
 };
 
 const AddProductForm = (props: any) => {
@@ -71,7 +70,7 @@ const AddProductForm = (props: any) => {
     let productId = uuidv4();
     let payload: ProductPayload = {
       ...formValues,
-      date: moment(formValues.date),
+      date: formValues.date,
       id: productId,
     };
     props.addProduct(payload);

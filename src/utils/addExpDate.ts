@@ -2,47 +2,49 @@ import moment from "moment";
 import { CategoryType } from "./types";
 
 const addExpDate = (product: any) => {
+  let freezingDate = moment(product.date);
+  let expDate;
   if (product.category === CategoryType.FRESH_MEAT) {
-    let newDate = moment(product.date).add(12, "months");
+    expDate = freezingDate.add(12, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   } else if (product.category === CategoryType.SAUSAGE) {
-    let newDate = moment(product.date).add(2, "months");
+    expDate = freezingDate.add(2, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   } else if (product.category === CategoryType.SOUPS_AND_STEWS) {
-    let newDate = moment(product.date).add(12, "months");
+    expDate = freezingDate.add(12, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   } else if (product.category === CategoryType.COOKED_MEAT) {
-    let newDate = moment(product.date).add(3, "months");
+    expDate = freezingDate.add(3, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   } else if (product.category === CategoryType.FRUITS) {
-    let newDate = moment(product.date).add(6, "months");
+    expDate = freezingDate.add(6, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   } else if (product.category === CategoryType.VEGETABLES) {
-    let newDate = moment(product.date).add(12, "months");
+    expDate = freezingDate.add(12, "months").format("YYYY-MM-DD");
 
     return (product = {
       ...product,
-      expDate: newDate,
+      expDate: expDate,
     });
   }
 };
