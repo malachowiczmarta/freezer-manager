@@ -49,4 +49,12 @@ const addExpDate = (product: any) => {
   }
 };
 
-export default addExpDate;
+const addExpDates = (products: any) => {
+  let productsWithExpDate = products.map((product: any) => {
+    let productWithExpDate = addExpDate(product);
+    return productWithExpDate;
+  });
+  return productsWithExpDate;
+};
+
+export default addExpDates;

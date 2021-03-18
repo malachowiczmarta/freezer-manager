@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Category.module.scss";
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 import Product from "../product/Product";
-import addExpDate from "../../../../utils/addExpDate";
+import addExpDate from "../../../../utils/addExpDates";
+import addExpDates from "../../../../utils/addExpDates";
 
 type categoryProps = {
   name: string;
@@ -10,10 +11,26 @@ type categoryProps = {
 };
 
 const Category = ({ name, data }: categoryProps) => {
+
+
+  const sortList = (a: any, b: any) => {
+    return a.expDate > b.expDate ? 1 : -1;
+  };
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const products = addExpDates(data).sort(sortList);
+      console.log(products)
+      setProductsList(products);
+    }
+  }, [data]);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [productsList, setProductsList] = useState([]);
   const handleOpenDd = () => {
     setIsOpen(!isOpen);
   };
+
 
   return (
     <div className={styles.wrapper}>
@@ -24,10 +41,9 @@ const Category = ({ name, data }: categoryProps) => {
         onClick={handleOpenDd}
       >
         <div className={styles.productContainer}>
-          {data && data.length > 0 ? (
-            data.map((product: any) => {
-              let data = addExpDate(product);
-              return <Product key={`prod-${product.id}`} data={data} />;
+          {productsList && productsList.length > 0 ? (
+            productsList.map((product: any) => {
+              return <Product key={`prod-${product.id}`} data={product} />;
             })
           ) : (
             <div className={styles.alertWrapper}>
