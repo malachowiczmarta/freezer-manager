@@ -6,7 +6,6 @@ import { deleteProduct } from "../../../../store/reducers/products";
 import styles from "./Product.module.scss";
 import DeleteButton from "../../../deleteButton/DeleteButton";
 
-import { Moment } from "moment";
 
 type ProductProps = {
   data: {

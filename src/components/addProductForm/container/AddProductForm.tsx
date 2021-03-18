@@ -63,7 +63,6 @@ const AddProductForm = (props: any) => {
         ...formErrors,
         formErrors,
       });
-      console.log("błąd");
       return;
     }
     setFormErrors(initialFormState);
