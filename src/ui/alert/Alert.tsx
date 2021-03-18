@@ -21,7 +21,7 @@ function Alert(props: AlertProps) {
   const { alerts, removeAlert } = props;
 
   useEffect(() => {
-    alerts.map((alert) => {
+    alerts.length && alerts.map((alert) => {
       const timer = setTimeout(() => removeAlert(alert.id), alert.displayFor);
       return () => clearTimeout(timer);
     });
@@ -43,7 +43,7 @@ function Alert(props: AlertProps) {
 
   return (
     <div>
-      {alerts.map((alert) => {
+      {alerts.length ? alerts.map((alert) => {
         const alertIcon = setIcon(alert.type);
         return (
           <div
@@ -54,7 +54,7 @@ function Alert(props: AlertProps) {
             <p>{alert.message}</p>
           </div>
         );
-      })}
+      }) : null}
     </div>
   );
 }

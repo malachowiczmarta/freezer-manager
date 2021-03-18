@@ -15,7 +15,7 @@ export type AlertObject = {
   type?: AlertType;
 };
 
-const INITIAL_STATE = {
+const INITIAL_STATE: IAlertState = {
   alerts: [],
 };
 
@@ -24,7 +24,7 @@ export const addAlert = (data: AlertObject) => ({
   payload: data,
 });
 
-export const removeAlert = (id: any) => ({
+export const removeAlert = (id: string) => ({
   type: REMOVE_ALERT,
   payload: id,
 });
@@ -49,7 +49,7 @@ function reducer(state = INITIAL_STATE, action: any) {
     case REMOVE_ALERT:
       return {
         ...state,
-        alerts: state.alerts.filter((alert: any) => {
+        alerts: state.alerts.filter((alert: AlertObject) => {
           console.log(action.payload);
           return alert.id !== action.payload;
         }),
