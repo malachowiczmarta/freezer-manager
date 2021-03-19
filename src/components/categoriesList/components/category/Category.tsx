@@ -14,12 +14,11 @@ const Category = ({ name, data }: categoryProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [productsList, setProductsList] = useState<ProductPayload[]>([]);
 
-  // const sortList = (a: ProductPayload, b: ProductPayload) => {
-  //   return a.expDate > b.expDate ? 1 : -1;
-  // };
-
-  const sortList = (a: any, b: any) => {
-    return a.expDate > b.expDate ? 1 : -1;
+  const sortList = (a: ProductPayload, b: ProductPayload) => {
+    if (a.expDate && b.expDate) {
+      return a.expDate > b.expDate ? 1 : -1;
+    }
+    return 1;
   };
 
   useEffect(() => {
@@ -46,7 +45,9 @@ const Category = ({ name, data }: categoryProps) => {
       >
         <div className={styles.productContainer}>
           {productsList && productsList.length > 0 ? (
-            productsList.map((product: any) => {
+            //dodac productpayload jako typ
+            productsList.map((product: ProductPayload) => {
+              console.log(product);
               return <Product key={`prod-${product.id}`} data={product} />;
             })
           ) : (

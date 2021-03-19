@@ -6,12 +6,11 @@ import { deleteProduct } from "../../../../store/reducers/products";
 import styles from "./Product.module.scss";
 import DeleteButton from "../../../deleteButton/DeleteButton";
 
-
 type ProductProps = {
   data: {
     name: string;
     date: string;
-    expDate: string;
+    expDate?: string;
     id: string;
   };
   deleteProduct: Function;
@@ -34,7 +33,11 @@ const Product = ({ data, ...props }: ProductProps) => {
         </p>
         <p>
           Best to defrost before:
-           <time>{data.expDate}</time>
+          {data.expDate ? (
+            <time>{data.expDate}</time>
+          ) : (
+            <p>sorry, something went wrong</p>
+          )}
         </p>
       </div>
     </div>
