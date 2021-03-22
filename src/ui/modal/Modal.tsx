@@ -10,7 +10,7 @@ function Modal({ children, open, toggleModal, label }: any) {
           <CloseIcon />
         </button>
         <div className={styles.contentContainer}>
-          <h2>{label}</h2>
+          <h1>{label}</h1>
           {children}
         </div>
       </div>

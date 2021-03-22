@@ -112,6 +112,7 @@ const AddProductForm = (props: any) => {
       </div>
       <Button
         variant="add"
+        type="submit"
         // disabled={isDisabled}
       />
     </form>

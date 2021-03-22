@@ -47,6 +47,9 @@ input {
   .wrapper {
     margin-right: 10px;
     margin-bottom: 0px;
+    &.signInWrapper {
+      margin-right: 0px;
+    }
   }
 
   .wrapperDate {

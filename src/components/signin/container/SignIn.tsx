@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../button/Button";
 // import fakeAuth from "fake-auth";
 import FormField from "../../formField/FormField";
 import styles from "./SignIn.module.scss";
@@ -69,7 +70,7 @@ function SignIn() {
           onChange={updateField}
           error={error.password}
         />
-        <button type="submit">Sign In</button>
+        <Button type="submit" label="Sign in" variant="signIn" />
       </form>
     </div>
   );
