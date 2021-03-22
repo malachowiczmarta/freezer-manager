@@ -1,25 +1,29 @@
-import { initAuthentication, setAuthError } from "../store/reducers/auth";
-
 export interface IAuthService {
-  initAuth(response: any): void;
-  authError(error: any): void;
-  initAuthentication(response: ResponseObject): void;
-  setAuthError(error: any): void;
+  signIn(email: string, password: string): Promise<ResponseObject>;
 }
 
-type ResponseObject = {
-  isAuthenticated: boolean;
+type User = {
   email: string;
 };
 
-class AuthService implements IAuthService {
-  public initAuth(response: any) {
-    this.initAuthentication(response);
-  }
+type ResponseObject = {
+  isAuthenticated: boolean;
+  user: User;
+};
 
-  public authError(error: any) {
-    this.setAuthError(error);
+class AuthService implements IAuthService {
+  public async signIn(
+    email: string,
+    password: string
+  ): Promise<ResponseObject> {
+    return {
+      isAuthenticated: true,
+      user: {
+        email,
+      },
+    };
   }
 }
+const authService: IAuthService = new AuthService();
 
-export default AuthService;
+export default authService;

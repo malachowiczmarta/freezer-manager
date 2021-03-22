@@ -13,7 +13,7 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import validate from "../../../utils/formValidators";
+import validate from "../../../utils/addProdFormValidators";
 import AlertService, { IAlertService } from "../../../service/alertService";
 
 const initialFormState = {

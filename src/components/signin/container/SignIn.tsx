@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import Button from "../../button/Button";
+import { connect } from "react-redux";
 // import fakeAuth from "fake-auth";
+import authService from "../../../service/authService";
+import { initAuthentication, setAuthError } from "../../../store/reducers/auth";
+import {
+  authLoadingSelector,
+  authErrorSelector,
+} from "../../../store/selectors/authSelectors";
+import validate from "../../../utils/signInValidators";
+
+import Button from "../../button/Button";
 import FormField from "../../formField/FormField";
 import styles from "./SignIn.module.scss";
 
@@ -9,9 +18,15 @@ const initialFormState = {
   password: "",
 };
 
-function SignIn() {
+const initialErrorState = {
+  email: "",
+  password: "",
+  message: "",
+};
+
+function SignIn(props: any) {
   const [formValues, setFormValues] = useState(initialFormState);
-  const [error, setError] = useState(initialFormState);
+  const [error, setError] = useState(initialErrorState);
 
   const updateField = (e: any) => {
     setFormValues({
@@ -21,31 +36,40 @@ function SignIn() {
   };
 
   const handleSubmit = (e: any) => {
-    // const [email, pass] = e.target.children;
     e.preventDefault();
     console.log(formValues);
+    let formErrors: any = validate(formValues);
+    if (formErrors) {
+        setError({
+        ...formErrors,
+        formErrors,
+      });
+      return;
+    }
 
-    // fakeAuth
-    //   .signin(email.value, pass.value)
-    //   .then((response) => {
-    //     props.initAuthentication({
-    //       isAuthenticated: true,
-    //       email: response.user.email,
-    //     });
-    //     props.setModal();
-    //   })
-    //   .catch((error) => {
-    //     setError(error);
-    //     let errorMessage =
-    //       error && error.message
-    //         ? error.message
-    //         : "Something went wrong. Please try again later";
-    //     props.setAuthError({ error: errorMessage });
-    //   });
+    authService
+      .signIn(formValues.email, formValues.password)
+      .then((response) => {
+        props.initAuthentication({
+          isAuthenticated: true,
+          email: response.user.email,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+        let errorMessage =
+          error && error.message
+            ? error.message
+            : "Something went wrong. Please try again later";
+        props.setAuthError({ error: errorMessage });
+      });
   };
 
   return (
     <div className={styles.wrapper}>
+      {error && <p>{error.message}</p>}
+
       <form
         onSubmit={(event) => {
           handleSubmit(event);
@@ -76,4 +100,14 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+const mapStateToProps = (state: any) => ({
+  isLoading: authLoadingSelector(state),
+  error: authErrorSelector(state),
+});
+
+const mapDispatchToProps = {
+  initAuthentication,
+  setAuthError,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
