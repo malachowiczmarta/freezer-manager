@@ -1,10 +1,5 @@
-@import "../../../assets/styles/variables.scss";
+@import "../../assets/styles/variables.scss";
 
-.wrapper {
-  position: relative;
-  margin-bottom: 30px;
-  width: 100%;
-}
 
 input {
   outline: none;
@@ -16,13 +11,29 @@ input {
   width: 100%;
   &::placeholder {
     font-size: $base-font-size;
-    color: $black-color;
+    color: $dark-gray;
     font-family: $form-font;
   }
   &:focus {
     border-color: $primary-color;
   }
 }
+
+.wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  &.signInWrapper {
+    margin-bottom: 35px;
+    input {
+      &:focus {
+        border-color: $dark-gray;
+      }
+    }
+  }
+}
+
+
 
 .errorMsg {
   position: absolute;

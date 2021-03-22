@@ -25,7 +25,7 @@
     background: $primary-color;
     box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
     border-radius: 3px;
-    button {
+    .btnClose {
       position: absolute;
       top: 15px;
       right: 15px;
@@ -37,7 +37,15 @@
       svg {
         width: 30px;
         height: 30px;
-        }
+      }
+    }
+    .contentContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 80%;    
     }
   }
 }
