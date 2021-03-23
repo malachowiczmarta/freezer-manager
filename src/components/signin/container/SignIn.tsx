@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-// import fakeAuth from "fake-auth";
 import authService from "../../../service/authService";
 import { initAuthentication, setAuthError } from "../../../store/reducers/auth";
 import {
@@ -47,23 +46,7 @@ function SignIn(props: any) {
       return;
     }
 
-    authService
-      .signIn(formValues.email, formValues.password)
-      .then((response) => {
-        props.initAuthentication({
-          isAuthenticated: true,
-          email: response.user.email,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error.message);
-        let errorMessage =
-          error && error.message
-            ? error.message
-            : "Something went wrong. Please try again later";
-        props.setAuthError({ error: errorMessage });
-      });
+    authService.signIn(formValues.email, formValues.password);
   };
 
   return (
