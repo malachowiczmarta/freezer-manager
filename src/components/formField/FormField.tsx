@@ -27,6 +27,8 @@ const FormField = ({
     fieldStyle = styles.wrapperName;
   } else if (name === "date") {
     fieldStyle = styles.wrapperDate;
+  } else if (name === "email" || name === "password") {
+    fieldStyle = styles.signInWrapper;
   }
 
   return (

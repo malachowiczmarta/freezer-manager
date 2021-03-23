@@ -10,10 +10,10 @@ import { v4 as uuidv4 } from "uuid";
 
 import styles from "./AddProductForm.module.scss";
 import Dropdown from "../../../ui/dropdown/Dropdown";
-import FormField from "../components/FormField";
+import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import validate from "../../../utils/formValidators";
+import validate from "../../../utils/addProdFormValidators";
 import AlertService, { IAlertService } from "../../../service/alertService";
 
 const initialFormState = {
@@ -112,6 +112,7 @@ const AddProductForm = (props: any) => {
       </div>
       <Button
         variant="add"
+        type="submit"
         // disabled={isDisabled}
       />
     </form>

@@ -2,9 +2,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.module.scss";
 import Nav from "./components/nav/container/Nav";
+import SignIn from "./components/signin/container/SignIn";
 import Home from "./pages/home/Home";
 import MyFreezer from "./pages/myFreezer/MyFreezer";
 import Alert from "./ui/alert/Alert";
+import Modal from "./ui/modal/Modal";
 
 
 function App() {
@@ -13,6 +15,9 @@ function App() {
         <Router>
           <Nav/>
           <Alert/>
+          <Modal label="Sign in">
+            <SignIn/>
+          </Modal>
           <Switch>
             <Route path="/myfreezer">
               <MyFreezer/>
