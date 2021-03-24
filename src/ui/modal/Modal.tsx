@@ -6,7 +6,14 @@ import { modalSelector } from "../../store/selectors/modalSelector";
 import styles from "./Modal.module.scss";
 import { ReactComponent as CloseIcon } from "../../assets/icon/close.svg";
 
-function Modal({ children, label, ...props }: any) {
+type ModalProps = {
+  children: React.ReactNode;
+  label: string;
+  setModal: Function;
+  showModal: boolean | null;
+};
+
+function Modal({ children, label, ...props }: ModalProps) {
   const toggleModal = () => {
     console.log("click modal");
     props.setModal();

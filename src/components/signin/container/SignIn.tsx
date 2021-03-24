@@ -34,12 +34,12 @@ function SignIn(props: any) {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: MouseEvent) => {
     e.preventDefault();
     console.log(formValues);
     let formErrors: any = validate(formValues);
     if (formErrors) {
-        setError({
+      setError({
         ...formErrors,
         formErrors,
       });

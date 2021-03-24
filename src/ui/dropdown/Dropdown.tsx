@@ -5,7 +5,7 @@ import { ReactComponent as UpArrowIcon } from "../../assets/icon/upload.svg";
 import styles from "./Dropdown.module.scss";
 
 type DropdownProps = {
-  children: any;
+  children: React.ReactNode;
   label?: string;
   productAmountLabel?: string;
   open: boolean;

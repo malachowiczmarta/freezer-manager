@@ -13,8 +13,13 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import validate from "../../../utils/addProdFormValidators";
+import validate, { AddProdFormType } from "../../../utils/addProdFormValidators";
 import AlertService, { IAlertService } from "../../../service/alertService";
+
+type AddProdFormProps = {
+  addProduct: Function;
+  addAlert: Function;
+};
 
 const initialFormState = {
   name: "",
@@ -22,7 +27,7 @@ const initialFormState = {
   date: "",
 };
 
-const AddProductForm = (props: any) => {
+const AddProductForm = (props: AddProdFormProps) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState(initialFormState);
@@ -57,6 +62,16 @@ const AddProductForm = (props: any) => {
   const handleAddProduct = (e: any) => {
     e.preventDefault();
 
+    //jak zadeklaruje sobie typ form error to wyrzuca mi błąd w setFormError
+    // let formErrors: AddProdFormType | null = validate(formValues);
+    // if (formErrors) {
+    //   setFormErrors({
+    //     ...formErrors,
+    //     formErrors,
+    //   });
+    //   return;
+    // }
+
     let formErrors: any = validate(formValues);
     if (formErrors) {
       setFormErrors({
@@ -65,6 +80,7 @@ const AddProductForm = (props: any) => {
       });
       return;
     }
+
     setFormErrors(initialFormState);
     let productId = uuidv4();
     let payload: ProductPayload = {
