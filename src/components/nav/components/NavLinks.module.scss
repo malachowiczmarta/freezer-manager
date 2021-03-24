@@ -1,46 +1,57 @@
 @import "../../../assets/styles/variables.scss";
 
 .navLinksContainer {
-    width: 85vw;
-    height: calc(100vh - 80px);
+  width: 85vw;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 999;
+  font-size: $base-xl-font-size;
+  color: $dark-gray;
+  background-color: $light-gray;
+  .linksWrapper {
+    width: 70%;
+    height: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 50px;
-    z-index: 99;
-    font-size: $base-xxl-font-size;
-    color: $dark-gray;
-    background-color: $light-gray;
     a {
-      padding: 15px 0;
+      margin: 15px 0;
       text-align: center;
       text-decoration: none;
       color: $dark-gray;
     }
-    button {
-      background-color: $light-gray;
-      padding: 15px 0;
-      font-weight: 700;
-    }
+  }
+
+  button {
+    background-color: $light-gray;
+    padding: 15px 0;
+    font-weight: 700;
+  }
 }
 
 @media (min-width: $breakpoint-small) {
-    .navLinksContainer {
-        width: 100%;
-        height: 100%;
-        justify-content: space-between;
-        flex-direction: row;
-        position: static;
-        font-size: $base-m-font-size;
-        .wrapper {
-          width: 50%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-      }
+  .navLinksContainer {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    position: static;
+    font-size: $base-m-font-size;
+    .linksWrapper {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 }
