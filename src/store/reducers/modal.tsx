@@ -1,6 +1,10 @@
 const SHOW_MODAL = "modal/SHOW_MODAL";
 
-const INITIAL_STATE = {
+export type IModalState = {
+  showModal: boolean;
+};
+
+const INITIAL_STATE: IModalState = {
   showModal: false,
 };
 
@@ -8,7 +12,7 @@ export function setModal() {
   return {
     type: SHOW_MODAL,
   };
-};
+}
 
 function reducer(state = INITIAL_STATE, action: any) {
   switch (action.type) {
@@ -17,6 +21,6 @@ function reducer(state = INITIAL_STATE, action: any) {
     default:
       return state;
   }
-};
+}
 
 export default reducer;

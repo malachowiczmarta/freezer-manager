@@ -6,12 +6,14 @@ import { productsSelector } from "../../../store/selectors/productsSelectors";
 import styles from "./CategoriesList.module.scss";
 import Category from "../components/category/Category";
 import { CategoryType } from "../../../utils/types";
+import { IProductState, ProductPayload } from "../../../store/reducers/products";
 
-const CategoriesList = (props: any) => {
+
+const CategoriesList = (props: IProductState) => {
   const { products } = props;
 
   const filterCategory = (category: string) => {
-    return products.filter((product: any) => product.category === category);
+    return products.filter((product: ProductPayload) => product.category === category);
   };
 
   return (

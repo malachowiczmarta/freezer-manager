@@ -6,10 +6,17 @@ import { modalSelector } from "../../../store/selectors/modalSelector";
 import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss";
 
-function NavLinks({onClick, ...props}: any) {
+type NavLinksProps = {
+  toggleDd?: Function | null;
+  setModal: Function;
+};
 
-  const toggleModal = () => {
-    onClick();
+function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
+  const toggle = () => {
+    if (toggleDd) {
+      //sprawdzic czy działa
+      toggleDd();
+    }
     props.setModal();
   };
 
@@ -19,7 +26,7 @@ function NavLinks({onClick, ...props}: any) {
         <Link to="/">Home</Link>
         <Link to="/myfreezer">My freezer</Link>
       </div>
-      <button onClick={toggleModal}>Sign in</button>
+      <button onClick={toggle}>Sign in</button>
     </div>
   );
 }
