@@ -22,12 +22,12 @@ const Category = ({ name, data }: categoryProps) => {
   };
 
   useEffect(() => {
-    if (data && data.length > 0) {
+    // if (data && data.length > 0) {
       const products = addExpDates(data).sort(sortList);
-      if (products) {
+      // if (products) {
         setProductsList(products);
-      }
-    }
+      // }
+    // }
   }, [data]);
 
   const handleOpenDd = () => {

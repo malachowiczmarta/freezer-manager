@@ -36,7 +36,7 @@ const Product = ({ data, ...props }: ProductProps) => {
           {data.expDate ? (
             <time>{data.expDate}</time>
           ) : (
-            <p>sorry, something went wrong</p>
+            <span>sorry, something went wrong</span>
           )}
         </p>
       </div>

@@ -40,7 +40,7 @@ function reducer(state = INITIAL_STATE, action: any) {
         action.payload.displayFor = 5000;
       }
       if (!action.payload.type) {
-        action.payload.displayFor = AlertType.INFO;
+        action.payload.type = AlertType.INFO;
       }
       return {
         ...state,
