@@ -3,6 +3,7 @@ import {FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, RE
 import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
 import { createEpicMiddleware } from "redux-observable";
 import rootReducer from "./reducers/rootReducer";
+import {rootEpic} from "./epics";
 
 const defaultMiddleware = getDefaultMiddleware(({
    serializableCheck: {
@@ -25,6 +26,8 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: defaultMiddleware
 });
+
+epicMiddleware.run(rootEpic);
 
 export const persistor = persistStore(store);
 

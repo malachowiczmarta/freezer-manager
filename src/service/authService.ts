@@ -1,6 +1,7 @@
 import fakeAuth from "fake-auth";
 import {initAuthentication, setAuthError} from "../store/reducers/auth";
 import store from "../store/store";
+import {setModal} from "../store/reducers/modal";
 
 export interface IAuthService {
   signIn(email: string, password: string): Promise<ResponseObject>;
@@ -29,6 +30,7 @@ class AuthService implements IAuthService {
           isAuthenticated: true,
           email: response.user.email,
         }));
+        store.dispatch(setModal());
       })
       .catch((error: any) => {
         let errorMessage =

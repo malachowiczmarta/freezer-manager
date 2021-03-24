@@ -9,7 +9,7 @@ import styles from "./NavLinks.module.scss";
 function NavLinks({onClick, ...props}: any) {
 
   const toggleModal = () => {
-    onClick();
+    // onClick();
     props.setModal();
   };
 
