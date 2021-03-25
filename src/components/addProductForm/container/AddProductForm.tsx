@@ -55,7 +55,7 @@ const AddProductForm = (props: AddProdFormProps) => {
     if (e.target) {
       setFormValues({
         ...formValues,
-        category: e.target,
+        category: e.target.value,
       });
     }
     toggleDd();
