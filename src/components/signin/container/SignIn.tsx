@@ -7,6 +7,7 @@ import {
   authErrorSelector,
 } from "../../../store/selectors/authSelectors";
 import { validateSignIn } from "../../../utils/validators";
+import alertService from "../../../service/alertService";
 
 import Button from "../../button/Button";
 import FormField from "../../formField/FormField";
@@ -47,6 +48,7 @@ function SignIn(props: any) {
     }
 
     authService.signIn(formValues.email, formValues.password);
+    alertService.addSuccessAlert("You have been sign in successfully.");
   };
 
   return (

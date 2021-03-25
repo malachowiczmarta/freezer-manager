@@ -8,10 +8,10 @@ import {
   isAuthenticatedSelector,
   emailSelector,
 } from "../../../store/selectors/authSelectors";
+import alertService from "../../../service/alertService";
 
 import { setModal } from "../../../store/reducers/modal";
 import { modalSelector } from "../../../store/selectors/modalSelector";
-
 import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss";
 
@@ -34,6 +34,7 @@ function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
   const handleSignOut = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     authService.signOut();
+    alertService.addSuccessAlert("You have been sign out successfully.");
   };
 
   return (

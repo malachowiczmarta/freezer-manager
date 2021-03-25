@@ -48,4 +48,6 @@ class AlertService implements IAlertService {
   }
 }
 
-export default AlertService;
+const alertService: IAlertService = new AlertService();
+
+export default alertService;
