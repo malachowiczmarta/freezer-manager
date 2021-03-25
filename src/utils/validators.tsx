@@ -5,7 +5,7 @@ export type AddProdFormType = {
 }
 
 
-export default function validate(values: any) {
+export function validateAddProd(values: any) {
   console.log("-=-=-=-", values);
   let errors: AddProdFormType = {};
   console.log(values.name && values.name.length);
@@ -26,6 +26,22 @@ export default function validate(values: any) {
 
   if (!values.category) {
     (errors).category = "Product category is required!";
+    return errors;
+  }
+
+  console.log("****", errors);
+  return null;
+}
+
+export function validateSignIn(values: any) {
+  console.log("-=-=-=-", values);
+  let errors = {};
+
+  if (!values.email) {
+    (errors as any).email = "Email address is required!";
+    return errors;
+  } else if (!/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(values.email)) {
+    (errors as any).email = "Please include '@' in email address";
     return errors;
   }
 

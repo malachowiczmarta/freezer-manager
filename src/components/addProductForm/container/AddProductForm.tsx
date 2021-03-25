@@ -13,9 +13,7 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import validate, {
-  AddProdFormType,
-} from "../../../utils/addProdFormValidators";
+import {validateAddProd} from "../../../utils/validators";
 import AlertService, { IAlertService } from "../../../service/alertService";
 
 type AddProdFormProps = {
@@ -52,7 +50,7 @@ const AddProductForm = (props: AddProdFormProps) => {
     // });
   };
 
-//const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>)
+  //const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>)
   const handleCategoryClick = (e: any) => {
     if (e.target) {
       setFormValues({
@@ -66,17 +64,7 @@ const AddProductForm = (props: AddProdFormProps) => {
   const handleAddProduct = (e: FormEvent) => {
     e.preventDefault();
 
-    //jak zadeklaruje sobie typ form error to wyrzuca mi błąd w setFormError
-    // let formErrors: AddProdFormType | null = validate(formValues);
-    // if (formErrors) {
-    //   setFormErrors({
-    //     ...formErrors,
-    //     formErrors,
-    //   });
-    //   return;
-    // }
-
-    let formErrors: any = validate(formValues);
+    let formErrors: any = validateAddProd(formValues);
     if (formErrors) {
       setFormErrors({
         ...formErrors,

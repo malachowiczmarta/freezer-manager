@@ -24,6 +24,12 @@ input {
   width: 100%;
   &.signInWrapper {
     margin-bottom: 35px;
+    .signInError {
+      color: $white-color;
+      svg{
+        fill: $white-color;
+      }
+    }
     input {
       &:focus {
         border-color: $dark-gray;
@@ -35,9 +41,14 @@ input {
 .errorMsg {
   position: absolute;
   left: 0;
-  top: -17px;
+  top: -22px;
   color: $error;
   font-size: $base-font-size;
+  svg {
+    height: 100%;
+    width: 20px;
+    margin-right: 5px;
+  }
 }
 
 @media (min-width: $breakpoint-medium) {

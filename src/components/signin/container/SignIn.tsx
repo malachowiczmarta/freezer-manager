@@ -6,7 +6,7 @@ import {
   authLoadingSelector,
   authErrorSelector,
 } from "../../../store/selectors/authSelectors";
-import validate from "../../../utils/signInValidators";
+import { validateSignIn } from "../../../utils/validators";
 
 import Button from "../../button/Button";
 import FormField from "../../formField/FormField";
@@ -37,7 +37,7 @@ function SignIn(props: any) {
   const handleSubmit = (e: MouseEvent) => {
     e.preventDefault();
     console.log(formValues);
-    let formErrors: any = validate(formValues);
+    let formErrors: any = validateSignIn(formValues);
     if (formErrors) {
       setError({
         ...formErrors,
@@ -77,7 +77,12 @@ function SignIn(props: any) {
           onChange={updateField}
           error={error.password}
         />
-        <Button type="submit" label="Sign in" variant="signIn" formNoValidate={true} />
+        <Button
+          type="submit"
+          label="Sign in"
+          variant="signIn"
+          formNoValidate={true}
+        />
       </form>
     </div>
   );
