@@ -5,6 +5,7 @@ import {setModal} from "../store/reducers/modal";
 
 export interface IAuthService {
   signIn(email: string, password: string): Promise<ResponseObject>;
+  signOut(): Promise<void>;
 }
 
 type User = {
@@ -40,6 +41,25 @@ class AuthService implements IAuthService {
         store.dispatch(setAuthError({ error: errorMessage }));
       });
   }
+
+  public async signOut(){
+    fakeAuth
+      .signout()
+      .then(() => {
+        store.dispatch(initAuthentication({
+          isAuthenticated: false,
+          email: null,
+        }));
+      })
+      .catch((error: any) => {
+        let errorMessage =
+            error && error.message
+                ? error.message
+                : "Something went wrong. Please try again later";
+        store.dispatch(setAuthError({ error: errorMessage }));
+      });
+  }
+
 }
 const authService: IAuthService = new AuthService();
 

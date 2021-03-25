@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   isAuthenticated: false,
   email: null,
   isLoading: false,
-  error: false,
+  error: null,
 };
 
 const authRequested = () => ({ type: AUTH_REQUESTED });

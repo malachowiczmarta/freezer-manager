@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import authService from "../../../service/authService";
+import { initAuthentication, setAuthError } from "../../../store/reducers/auth";
+import {
+  authLoadingSelector,
+  authErrorSelector,
+} from "../../../store/selectors/authSelectors";
+
+
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import styles from "./Nav.module.scss";
 import NavLinks from "../components/NavLinks";
 
-function Nav() {
+function Nav(props: any) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDd = () => {
@@ -27,4 +36,14 @@ function Nav() {
   );
 }
 
-export default Nav;
+const mapStateToProps = (state: any) => ({
+  isLoading: authLoadingSelector(state),
+  error: authErrorSelector(state),
+});
+
+const mapDispatchToProps = {
+  initAuthentication,
+  setAuthError,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

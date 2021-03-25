@@ -40,14 +40,17 @@ input {
 
 .errorMsg {
   position: absolute;
+  display: flex;
+  align-items: center;
   left: 0;
   top: -22px;
   color: $error;
   font-size: $base-font-size;
   svg {
+    fill: $error;
     height: 100%;
     width: 20px;
-    margin-right: 5px;
+    margin-right: 7px;
   }
 }
 

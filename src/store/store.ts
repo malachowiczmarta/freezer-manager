@@ -17,7 +17,7 @@ defaultMiddleware.push(epicMiddleware);
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["products"],
+    whitelist: ["products", "auth"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
