@@ -1,4 +1,5 @@
 import React from "react";
+import { FormFieldType } from "../../utils/types";
 import styles from "./FormField.module.scss";
 
 type FormFieldProps = {
@@ -23,11 +24,11 @@ const FormField = ({
   error,
 }: FormFieldProps) => {
   let fieldStyle = "";
-  if (name === "name") {
+  if (name === FormFieldType.NAME) {
     fieldStyle = styles.wrapperName;
-  } else if (name === "date") {
+  } else if (name === FormFieldType.DATE) {
     fieldStyle = styles.wrapperDate;
-  } else if (name === "email" || name === "password") {
+  } else if (name === FormFieldType.EMAIL || name === FormFieldType.PASSWORD) {
     fieldStyle = styles.signInWrapper;
   }
 

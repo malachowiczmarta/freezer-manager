@@ -13,3 +13,11 @@ export enum AlertType {
   SUCCESS = "success",
   ERROR = "error",
 }
+
+
+export enum FormFieldType {
+  NAME = "name",
+  DATE = "date",
+  EMAIL = "email",
+  PASSWORD = "password"
+}

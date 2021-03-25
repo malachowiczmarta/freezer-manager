@@ -54,7 +54,7 @@ function SignIn(props: any) {
       {error && <p>{error.message}</p>}
 
       <form
-        onSubmit={(event) => {
+        onSubmit={(event: any) => {
           handleSubmit(event);
         }}
         className={styles.formContainer}
@@ -77,7 +77,7 @@ function SignIn(props: any) {
           onChange={updateField}
           error={error.password}
         />
-        <Button type="submit" label="Sign in" variant="signIn" />
+        <Button type="submit" label="Sign in" variant="signIn" formNoValidate={true} />
       </form>
     </div>
   );

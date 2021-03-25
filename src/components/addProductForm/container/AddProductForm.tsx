@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 import { connect } from "react-redux";
 import { addProduct, ProductPayload } from "../../../store/reducers/products";
@@ -13,7 +13,9 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import validate, { AddProdFormType } from "../../../utils/addProdFormValidators";
+import validate, {
+  AddProdFormType,
+} from "../../../utils/addProdFormValidators";
 import AlertService, { IAlertService } from "../../../service/alertService";
 
 type AddProdFormProps = {
@@ -38,12 +40,11 @@ const AddProductForm = (props: AddProdFormProps) => {
     setIsOpen(!isOpen);
   };
 
-  const updateField = (e: any) => {
+  const updateField = (e: ChangeEvent<HTMLInputElement>) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
-
     // let formErrors: any = validate(formValues);
     // setFormErrors({
     //   ...formErrors,
@@ -51,15 +52,18 @@ const AddProductForm = (props: AddProdFormProps) => {
     // });
   };
 
+//const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>)
   const handleCategoryClick = (e: any) => {
-    setFormValues({
-      ...formValues,
-      category: e.target.value,
-    });
+    if (e.target) {
+      setFormValues({
+        ...formValues,
+        category: e.target,
+      });
+    }
     toggleDd();
   };
 
-  const handleAddProduct = (e: any) => {
+  const handleAddProduct = (e: FormEvent) => {
     e.preventDefault();
 
     //jak zadeklaruje sobie typ form error to wyrzuca mi błąd w setFormError

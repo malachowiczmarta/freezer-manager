@@ -1,9 +1,9 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { CategoryType } from "../../../utils/types";
 import styles from "./FormCategoryList.module.scss";
 
 type CategoryListProps = {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
 const FormCategoryList = ({ onClick }: CategoryListProps) => {
