@@ -46,7 +46,6 @@ const Category = ({ name, data }: categoryProps) => {
         <div className={styles.productContainer}>
           {productsList && productsList.length > 0 ? (
             productsList.map((product: ProductPayload) => {
-              console.log(product);
               return <Product key={`prod-${product.id}`} data={product} />;
             })
           ) : (

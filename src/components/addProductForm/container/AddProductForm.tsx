@@ -11,7 +11,7 @@ import Dropdown from "../../../ui/dropdown/Dropdown";
 import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
-import {validateAddProd} from "../../../utils/validators";
+import { validateAddProd } from "../../../utils/validators";
 import alertService from "../../../service/alertService";
 
 type AddProdFormProps = {
@@ -77,9 +77,6 @@ const AddProductForm = (props: AddProdFormProps) => {
       id: productId,
     };
     props.addProduct(payload);
-
-    alertService.addSuccessAlert("Success, product added to the list.");
-
     setFormValues(initialFormState);
   };
 
