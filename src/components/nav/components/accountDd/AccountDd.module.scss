@@ -1,0 +1,11 @@
+@import "../../../../assets/styles/variables.scss";
+
+.signOutWrapper {
+//   z-index: 9999999;
+//   position: absolute;
+  left: 0;
+  width: 220px;
+  border: 1px solid $gray;
+  border-radius: 2px;
+  background-color: $white-color;
+}

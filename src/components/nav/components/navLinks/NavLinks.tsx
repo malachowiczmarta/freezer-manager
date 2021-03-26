@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import authService from "../../../service/authService";
-import { initAuthentication, setAuthError } from "../../../store/reducers/auth";
+import authService from "../../../../service/authService";
+import { initAuthentication, setAuthError } from "../../../../store/reducers/auth";
 import {
   authLoadingSelector,
   authErrorSelector,
   isAuthenticatedSelector,
   emailSelector,
-} from "../../../store/selectors/authSelectors";
-import alertService from "../../../service/alertService";
+} from "../../../../store/selectors/authSelectors";
+import alertService from "../../../../service/alertService";
 
-import { setModal } from "../../../store/reducers/modal";
-import { modalSelector } from "../../../store/selectors/modalSelector";
+import { setModal } from "../../../../store/reducers/modal";
+import { modalSelector } from "../../../../store/selectors/modalSelector";
 import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss";
+import Dropdown from "../../../../ui/dropdown/Dropdown";
+import AccountDd from "../accountDd/AccountDd";
 
 type NavLinksProps = {
   toggleDd?: Function | null;
@@ -24,6 +26,12 @@ type NavLinksProps = {
 };
 
 function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAccountDd = () => {
+    setIsOpen(!isOpen);
+  };
+
   const toggle = () => {
     if (toggleDd) {
       toggleDd();
@@ -44,17 +52,22 @@ function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
         <Link to="/myfreezer">My freezer</Link>
       </div>
       {props.isAuthenticated && props.email ? (
-        <div className={styles.signOutWrapper}>
-          {props.error && <p>{props.error}</p>}
-          <p>{props.email}</p>
-          <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-              handleSignOut(e)
-            }
-          >
-            Sign Out
-          </button>
-        </div>
+        <AccountDd />
+        // <AccountDd>
+        //   {props.error && <p>{props.error}</p>}
+        //   <Dropdown onClick={toggleAccountDd} open={isOpen} variant="account">
+        //     <div className={styles.signOutWrapper}>
+        //       <p>{props.email}</p>
+        //       <button
+        //         onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+        //           handleSignOut(e)
+        //         }
+        //       >
+        //         Sign Out
+        //       </button>
+        //     </div>
+        //   </Dropdown>
+        // </AccountDd>
       ) : (
         <button onClick={toggle}>Sign in</button>
       )}

@@ -5,6 +5,12 @@
   font-size: $base-font-size;
 }
 
+.accountWrapper {
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}
+
 .ddFormWrapper {
   width: 100%;
   border: 1px solid $gray;

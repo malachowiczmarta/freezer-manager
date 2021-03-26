@@ -12,7 +12,6 @@ import FormField from "../../formField/FormField";
 import FormCategoryList from "../components/FormCategoryList";
 import Button from "../../button/Button";
 import { validateAddProd } from "../../../utils/validators";
-import alertService from "../../../service/alertService";
 
 type AddProdFormProps = {
   addProduct: Function;

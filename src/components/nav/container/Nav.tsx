@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Dropdown from "../../../ui/dropdown/Dropdown";
 import styles from "./Nav.module.scss";
-import NavLinks from "../components/NavLinks";
+import NavLinks from "../components/navLinks/NavLinks";
 
 function Nav() {
     const [isOpen, setIsOpen] = useState(false);
