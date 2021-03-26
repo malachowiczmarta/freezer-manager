@@ -3,77 +3,85 @@
 .dropdownWrapper {
   position: relative;
   font-size: $base-font-size;
-}
 
-.accountWrapper {
-  position: absolute;
-  right: 0;
-  z-index: 9999;
-}
-
-.ddFormWrapper {
-  width: 100%;
-  border: 1px solid $gray;
-}
-
-.categoryWrapper {
-  width: 100%;
-  background-color: $primary-color;
-  fill: $white-color;
-}
-
-.dropdownHeader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  padding: 15px 10px;
-  border-radius: 2px;
-  background-color: $white-color;
-
-  .container {
+  .dropdownHeader {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
     width: 100%;
-    align-items: flex-end;
-    justify-content: space-between;
-    svg {
-      width: 15px;
-      height: 15px;
-      margin-left: 10px;
-    }
-    .labelContainer {
+    padding: 15px 10px;
+    border-radius: 2px;
+    background-color: $white-color;
+
+    .container {
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: column;
-      .productAmount {
-        font-size: $base-font-size;
-        text-transform: none;
-        color: $gray;
+      width: 100%;
+      align-items: flex-end;
+      justify-content: space-between;
+      svg {
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+      }
+      .labelContainer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        .productAmount {
+          font-size: $base-font-size;
+          text-transform: none;
+          color: $gray;
+        }
+      }
+    }
+
+    &.ddHeaderCategory {
+      height: 65px;
+      padding: 0 15px;
+      background-color: $primary-color;
+      color: $white-color;
+      font-size: $base-ml-font-size;
+      text-transform: uppercase;
+    }
+
+    &.ddHeaderMenu {
+      background-color: $light-gray;
+      svg {
+        background-color: $light-gray;
       }
     }
   }
-}
 
-.ddHeaderCategory {
-  height: 65px;
-  padding: 0 15px;
-  background-color: $primary-color;
-  color: $white-color;
-  font-size: $base-ml-font-size;
-  text-transform: uppercase;
-}
+  &.ddFormWrapper {
+    width: 100%;
+    border: 1px solid $gray;
+  }
 
-.ddHeaderMenu {
-  background-color: $light-gray;
-  svg {
-    background-color: $light-gray;
+  &.categoryWrapper {
+    width: 100%;
+    background-color: $primary-color;
+    fill: $white-color;
+  }
+
+  &.accountWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+
+    .dropdownHeader {
+      justify-content: flex-end;
+      background-color: transparent;
+    }
   }
 }
 
 @media (min-width: $breakpoint-medium) {
-  .ddFormWrapper {
-    width: 200px;
+  .dropdownWrapper {
+    &.ddFormWrapper {
+      width: 200px;
+    }
   }
 }
