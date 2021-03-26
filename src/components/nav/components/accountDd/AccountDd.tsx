@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from "react-redux";
 import authService from "../../../../service/authService";
 import {
@@ -18,6 +18,28 @@ import Dropdown from "../../../../ui/dropdown/Dropdown";
 
 function AccountDd(props: any) {
   const [isOpen, setIsOpen] = useState(false);
+  const node: any = useRef();
+
+  useEffect(() => {
+
+    const handleClickOutside = (e: any) => {
+      if (node.current && node.current.contains(e.target)) {
+        // inside click
+        return;
+      }
+      // outside click
+      setIsOpen(!isOpen);
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const toggleAccountDd = () => {
     console.log("click account");
@@ -34,7 +56,7 @@ function AccountDd(props: any) {
     <>
       {props.error && <p>{props.error}</p>}
       <Dropdown onClick={toggleAccountDd} open={isOpen} variant="account">
-        <div className={styles.signOutContent}>
+        <div ref={node} className={styles.signOutContent}>
           <p>{props.email}</p>
           <button
             onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
