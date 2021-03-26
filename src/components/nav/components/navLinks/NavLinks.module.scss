@@ -1,73 +1,17 @@
 @import "../../../../assets/styles/variables.scss";
 
-.navLinksContainer {
-  width: 95vw;
-  height: 100vh;
-  overflow-y: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  z-index: 999;
-  font-size: $base-xl-font-size;
-  color: $dark-gray;
-  background-color: $light-gray;
-  // .signOutWrapper {
-  //   width: 70%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
-  .linksWrapper {
-    width: 70%;
-    height: 50%;
+@media (min-width: $breakpoint-small) {
+  .navLinksContainer {
+    width: 40%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    font-size: $base-m-font-size;
     a {
-      margin: 15px 0;
       text-align: center;
       text-decoration: none;
       color: $dark-gray;
-    }
-  }
-
-  button {
-    background-color: $light-gray;
-    padding: 15px 0;
-    font-weight: 700;
-  }
-}
-
-@media (min-width: $breakpoint-small) {
-  .navLinksContainer {
-    width: 100%;
-    height: 100%;
-    justify-content: space-between;
-    flex-direction: row;
-    position: relative;
-    right: auto;
-    top: auto;
-    font-size: $base-m-font-size;
-    overflow: visible;
-    // .signOutWrapper {
-    //   width: 35%;
-    //   flex-direction: row;
-    //   justify-content: space-between;
-    //   p {
-    //     margin-right: 10px;
-    //   }
-    // }
-    .linksWrapper {
-      width: 35%;
-      height: 100%;
-      flex-direction: row;
-      justify-content: space-between;
     }
   }
 }

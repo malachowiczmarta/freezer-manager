@@ -34,7 +34,7 @@ function AccountDd(props: any) {
     <>
       {props.error && <p>{props.error}</p>}
       <Dropdown onClick={toggleAccountDd} open={isOpen} variant="account">
-        <div className={styles.signOutWrapper}>
+        <div className={styles.signOutContent}>
           <p>{props.email}</p>
           <button
             onClick={(e: React.MouseEvent<HTMLButtonElement>) =>

@@ -1,11 +1,20 @@
 @import "../../../../assets/styles/variables.scss";
 
-.signOutWrapper {
-//   z-index: 9999999;
-//   position: absolute;
-  left: 0;
+.signOutContent {
   width: 220px;
   border: 1px solid $gray;
   border-radius: 2px;
-  background-color: $white-color;
+  background-color: $light-gray;
+  padding: 15px 15px;
+  align-items: center;
+  z-index: 99;
+  position: absolute;
+  right: 0;
+  p {
+    margin-bottom: 10px;
+  }
+  button {
+    background-color: $light-gray;
+    font-weight: 700;
+  }
 }

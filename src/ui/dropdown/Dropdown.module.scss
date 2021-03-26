@@ -1,8 +1,8 @@
 @import "../../assets/styles/variables.scss";
 
 .dropdownWrapper {
-  position: relative;
   font-size: $base-font-size;
+  position: relative;
 
   .dropdownHeader {
     display: flex;
@@ -67,9 +67,10 @@
 
   &.accountWrapper {
     position: absolute;
-    top: 0;
+    z-index: 99;
     right: 0;
-    z-index: 9999;
+    bottom: auto;
+    background-color: $light-gray;
 
     .dropdownHeader {
       justify-content: flex-end;

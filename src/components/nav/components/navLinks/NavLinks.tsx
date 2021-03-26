@@ -15,6 +15,7 @@ import { modalSelector } from "../../../../store/selectors/modalSelector";
 import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss";
 import AccountDd from "../accountDd/AccountDd";
+import { ReactComponent as AccountIcon } from "../../../../assets/icon/account.svg";
 
 type NavLinksProps = {
   toggleDd?: Function | null;
@@ -34,15 +35,8 @@ function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
 
   return (
     <div className={styles.navLinksContainer}>
-      <div className={styles.linksWrapper}>
         <Link to="/">Home</Link>
         <Link to="/myfreezer">My freezer</Link>
-      </div>
-      {props.isAuthenticated && props.email ? (
-        <AccountDd />
-      ) : (
-        <button onClick={toggle}>Sign in</button>
-      )}
     </div>
   );
 }

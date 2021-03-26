@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/variables.scss";
+
+.linksMobileContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 80px;
+  z-index: 999;
+  font-size: $base-xl-font-size;
+  color: $dark-gray;
+  background-color: $light-gray;
+  button {
+    padding: 5px 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: $dark-gray;
+    background-color: $light-gray;
+  }
+}

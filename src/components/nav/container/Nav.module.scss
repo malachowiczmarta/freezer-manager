@@ -10,12 +10,23 @@
   height: 80px;
   @extend %box-center;
   justify-content: center;
+  position: relative;
+
+  button {
+    background-color: $light-gray;
+  }
 
   .navContainer {
     width: 85vw;
     height: 100%;
     @extend %box-center;
     justify-content: space-between;
+    position: relative;
+
+    .mobileHeader {
+      display: flex;
+      align-items: center;
+    }
 
     .navLinks {
       display: none;
@@ -27,7 +38,6 @@
       line-height: 0.9;
       color: $primary-color;
     }
-
   }
 }
 
@@ -40,7 +50,9 @@
       }
 
       .navLinks {
-        display: inline;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 70%;
       }
     }
