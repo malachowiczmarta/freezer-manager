@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import authService from "../../../../service/authService";
-import { initAuthentication, setAuthError } from "../../../../store/reducers/auth";
+import {
+  setAuthError,
+} from "../../../../store/reducers/auth";
 import {
   authLoadingSelector,
   authErrorSelector,
   isAuthenticatedSelector,
   emailSelector,
 } from "../../../../store/selectors/authSelectors";
-import alertService from "../../../../service/alertService";
 
 import { setModal } from "../../../../store/reducers/modal";
 import { modalSelector } from "../../../../store/selectors/modalSelector";
 import { Link } from "react-router-dom";
 import styles from "./NavLinks.module.scss";
-import Dropdown from "../../../../ui/dropdown/Dropdown";
 import AccountDd from "../accountDd/AccountDd";
 
 type NavLinksProps = {
@@ -26,23 +25,11 @@ type NavLinksProps = {
 };
 
 function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccountDd = () => {
-    setIsOpen(!isOpen);
-  };
-
   const toggle = () => {
     if (toggleDd) {
       toggleDd();
     }
     props.setModal();
-  };
-
-  const handleSignOut = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    authService.signOut();
-    alertService.addSuccessAlert("You have been sign out successfully.");
   };
 
   return (
@@ -53,21 +40,6 @@ function NavLinks({ toggleDd = null, ...props }: NavLinksProps) {
       </div>
       {props.isAuthenticated && props.email ? (
         <AccountDd />
-        // <AccountDd>
-        //   {props.error && <p>{props.error}</p>}
-        //   <Dropdown onClick={toggleAccountDd} open={isOpen} variant="account">
-        //     <div className={styles.signOutWrapper}>
-        //       <p>{props.email}</p>
-        //       <button
-        //         onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-        //           handleSignOut(e)
-        //         }
-        //       >
-        //         Sign Out
-        //       </button>
-        //     </div>
-        //   </Dropdown>
-        // </AccountDd>
       ) : (
         <button onClick={toggle}>Sign in</button>
       )}
@@ -87,7 +59,6 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToPros = {
   setModal,
-  initAuthentication,
   setAuthError,
 };
 
